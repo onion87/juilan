@@ -59,10 +59,15 @@
     .hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.02;max-width:10ch}
     .hero p{margin-top:var(--space-5);max-width:60ch;color:var(--color-text-muted)}
     .cta-row{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-8)}
-    .btn{min-height:48px;padding:.95rem 1.35rem;border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent}
+    .btn{min-height:48px;padding:.95rem 1.35rem;border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent;transition:background .18s, color .18s, border-color .18s}
     .btn-primary{background:var(--color-primary);color:#041518;box-shadow:var(--shadow-md)}
     .btn-primary:hover{background:var(--color-primary-hover);color:white}
     .btn-secondary{background:var(--color-surface);border-color:var(--color-border)}
+    .btn-secondary:hover{background:var(--color-surface-2)}
+    .btn-outline{background:transparent;border-color:var(--color-primary);color:var(--color-primary)}
+    .btn-outline:hover{background:var(--color-primary-highlight)}
+    .btn-gold{background:var(--color-gold);color:#1a0e00;border-color:transparent}
+    .btn-gold:hover{filter:brightness(1.1)}
     .hero-note{margin-top:var(--space-5);font-size:var(--text-xs);color:var(--color-text-faint)}
     .hero-card{position:relative;background:linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 80%, transparent), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-md);overflow:hidden}
     .hero-card:before{content:"";position:absolute;inset:auto -10% -35% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle, rgba(57,184,196,.24), transparent 65%)}
@@ -95,15 +100,24 @@
     .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
     .principle{padding:var(--space-5);border-radius:var(--radius-xl);border:1px solid var(--color-border);background:linear-gradient(180deg, var(--color-surface), transparent)}
     .principle strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+
+    /* 聯絡管理 CTA 區塊 */
+    .contact-cta{margin-top:var(--space-12);padding:var(--space-8) var(--space-6);background:linear-gradient(135deg, var(--color-surface), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+    .contact-cta-text strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .contact-cta-text p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:52ch}
+    .contact-cta-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
+
     .footer{padding:var(--space-16) 0 var(--space-10);border-top:1px solid var(--color-border)}
     .footer-wrap{display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:end}
     .footer-links{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-    .footer-links a{padding:.8rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm)}
+    .footer-links a{padding:.8rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm);transition:background .18s}
+    .footer-links a:hover{background:var(--color-surface-2)}
     .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:72ch}
     @media (max-width: 1024px){
       .hero-grid,.split,.grid-4,.principles,.footer-wrap{grid-template-columns:1fr}
       .grid-3{grid-template-columns:repeat(2,1fr)}
       .section-head{flex-direction:column;align-items:flex-start}
+      .contact-cta{flex-direction:column;align-items:flex-start}
     }
     @media (max-width: 720px){
       .nav-links{display:none}
@@ -113,6 +127,8 @@
       .cta-row{flex-direction:column}
       .btn{width:100%}
       .container{width:min(calc(100% - 1.25rem), var(--content))}
+      .contact-cta-btns{flex-direction:column;width:100%}
+      .contact-cta-btns .btn{width:100%}
     }
     @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
   </style>
@@ -152,7 +168,14 @@
           <h1>用風控和紀律，把交易做成可複製的系統。</h1>
           <p>君瀾一品專注於合約策略交易社群經營，整合每日即時分析、TradingView 量化指標、量化自動反手策略與真實開單紀錄，讓新手有路徑、老手有節奏、團隊有共識。</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://t.me/" target="_blank" rel="noopener noreferrer">加入外部體驗群</a>
+            <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.552l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.007z"/></svg>
+              加入 TG 體驗群
+            </a>
+            <a class="btn btn-secondary" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.365 9.89c.50 0 .866.41.866.96s-.366.96-.866.96H17.71v1.044h1.655c.5 0 .866.41.866.96s-.366.96-.866.96H16.75a.958.958 0 0 1-.957-.958V9.89c0-.528.43-.958.957-.958h2.615zm-5.235 3.992a.95.95 0 0 1-.66.263.953.953 0 0 1-.697-.3l-2.113-2.373v2.41a.96.96 0 1 1-1.92 0v-3.984c0-.487.367-.894.852-.945a.956.956 0 0 1 .994.446L12.7 11.77V9.89a.96.96 0 1 1 1.92 0v3.984a.95.95 0 0 1-.49.808zm-5.62.222a.96.96 0 1 1-1.92 0V9.89a.96.96 0 1 1 1.92 0v4.214zM5.01 9.89c.528 0 .957.43.957.958v3.226h1.655c.5 0 .866.41.866.96s-.366.96-.866.96H4.054a.958.958 0 0 1-.957-.958V9.89c0-.528.43-.958.957-.958zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.21 13.4c0 3.304-3.316 5.992-7.392 5.992a8.803 8.803 0 0 1-2.104-.253l-2.248 1.118a.413.413 0 0 1-.581-.448l.372-1.857C4.603 16.856 3.498 15.218 3.498 13.4c0-3.304 3.316-5.992 7.392-5.992S18.21 10.096 18.21 13.4z"/></svg>
+              加入 LINE 體驗群
+            </a>
           </div>
           <p class="hero-note">核心節奏：盤前判讀、盤中執行、盤後復盤。先活下來，再把勝率和盈虧比慢慢拉開。</p>
         </div>
@@ -203,8 +226,25 @@
           <article class="card"><span class="tag">02</span><h3>TradingView 量化指標</h3><p>把主觀判斷壓縮成可視化訊號，讓趨勢、結構、節奏更容易被看懂，特別適合正在建立交易框架的人。</p></article>
           <article class="card"><span class="tag">03</span><h3>量化自動反手策略</h3><p>針對快速變盤環境，把策略切換與方向反轉做成更有紀律的機制，降低臨場情緒對決策的干擾。</p></article>
           <article class="card"><span class="tag">04</span><h3>真實開單數據紀錄</h3><p>不是只秀結果，而是保留進場、出場、停損與盈虧節奏，讓社群成員能回頭複盤，看到策略真正的長期樣子。</p></article>
-          <article class="card"><span class="tag">05</span><h3>內部交流群</h3><p>給已經準備認真做的人，強調同步策略、節奏管理與實盤交流，提升執行的一致性和學習效率。</p></article>
-          <article class="card"><span class="tag">06</span><h3>外部體驗群</h3><p>讓還在觀望的新朋友先認識社群氛圍、教學方式與內容品質，降低加入前的不確定感。</p></article>
+          <article class="card"><span class="tag">05</span><h3>外部體驗群</h3><p>讓還在觀望的新朋友先認識社群氛圍、教學方式與內容品質，降低加入前的不確定感，歡迎先進來感受。</p></article>
+          <article class="card"><span class="tag">06</span><h3>完整學習系統</h3><p>從基礎入門、技術分析、策略應用到量化思維，系統化陪你建立交易框架，不是喊單群，是真的讓你學會。</p></article>
+        </div>
+
+        <!-- 聯絡台區管理 CTA -->
+        <div class="contact-cta">
+          <div class="contact-cta-text">
+            <strong>想加入深度交流？聯絡台區管理申請加入</strong>
+            <p>填寫指定邀請碼，入金 1000U 後回報帳戶截圖及交易所 UID，即可申請加入內部群。有任何疑問皆可私訊，會一對一回覆您。</p>
+          </div>
+          <div class="contact-cta-btns">
+            <a class="btn btn-gold" href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.552l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.007z"/></svg>
+              TG 聯絡台區管理
+            </a>
+            <a class="btn btn-outline" href="https://line.me/ti/p/dufij" target="_blank" rel="noopener noreferrer">
+              LINE 聯絡台區管理
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -236,7 +276,7 @@
             <span class="eyebrow">Community</span>
             <h2>社群不是背景板，而是每天都在運轉的交易現場。</h2>
           </div>
-          <p>這裡用偏真實互動感的方式呈現社群氛圍，讓首頁就能帶出即時策略分享、群組互動、教學直播、盤面解析與學員交流的感覺。</p>
+          <p>即時策略分享、群組互動、教學直播、盤面解析與學員交流，這裡的學習是活的，不是一堆靜態教材。</p>
         </div>
         <div class="split">
           <div class="community-board">
@@ -264,7 +304,7 @@
             <span class="eyebrow">Core Belief</span>
             <h2>我們的核心理念，只有四件事。</h2>
           </div>
-          <p>首頁最後一段不需要講太滿，重點是把品牌底層價值釘住，讓訪客知道這個社群的交易文化到底站在哪一邊。</p>
+          <p>品牌底層價值就這四件事，讓訪客知道這個社群的交易文化到底站在哪一邊。</p>
         </div>
         <div class="principles">
           <div class="principle"><strong>風控優先</strong><p>先思考錯了怎麼退，不先幻想對了能賺多少。</p></div>
@@ -287,14 +327,20 @@
           </svg>
           <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
         </div>
-        <p style="color:var(--color-text-muted);max-width:52ch;">把交易做成一套有記錄、有規則、有節奏的長期系統。首頁現在先聚焦品牌主張與轉換，後續可以再往 Learn、Community、Strategy、News、About 擴充。</p>
+        <p style="color:var(--color-text-muted);max-width:52ch;">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
         <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與停損管理。</p>
       </div>
-      <div class="footer-links" aria-label="外部連結">
-        <a href="https://t.me/" target="_blank" rel="noopener noreferrer">TG 外部體驗群</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView</a>
-        <a href="mailto:service@example.com" target="_blank" rel="noopener noreferrer">聯絡方式</a>
+      <div>
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;">Follow Us</p>
+        <div class="footer-links" aria-label="外部連結">
+          <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
+          <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
+          <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
+          <a href="https://www.tiktok.com/@dafu5558" target="_blank" rel="noopener noreferrer">TikTok @dafu5558</a>
+          <a href="https://www.tiktok.com/@dufij55678" target="_blank" rel="noopener noreferrer">TikTok @dufij55678</a>
+          <a href="https://www.tiktok.com/@fuyao68" target="_blank" rel="noopener noreferrer">TikTok @fuyao68</a>
+          <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區管理</a>
+        </div>
       </div>
     </div>
   </footer>
