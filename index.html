@@ -47,7 +47,8 @@
     .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:color-mix(in srgb, var(--color-bg) 74%, transparent);border-bottom:1px solid var(--color-border)}
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
     .brand{display:flex;align-items:center;gap:var(--space-3)}
-    .logo{width:42px;height:42px;padding:8px;border-radius:14px;background:linear-gradient(135deg, var(--color-primary-highlight), transparent), var(--color-surface-2);border:1px solid var(--color-border)}
+    .logo{width:42px;height:42px;flex-shrink:0;padding:8px;border-radius:14px;background:linear-gradient(135deg, var(--color-primary-highlight), transparent), var(--color-surface-2);border:1px solid var(--color-border)}
+    .brand-text{white-space:nowrap}
     .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.04em}
     .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
     .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
@@ -100,24 +101,30 @@
     .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
     .principle{padding:var(--space-5);border-radius:var(--radius-xl);border:1px solid var(--color-border);background:linear-gradient(180deg, var(--color-surface), transparent)}
     .principle strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
-
-    /* 聯絡管理 CTA 區塊 */
     .contact-cta{margin-top:var(--space-12);padding:var(--space-8) var(--space-6);background:linear-gradient(135deg, var(--color-surface), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
     .contact-cta-text strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
     .contact-cta-text p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:52ch}
     .contact-cta-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
 
+    /* Footer 修正 */
     .footer{padding:var(--space-16) 0 var(--space-10);border-top:1px solid var(--color-border)}
-    .footer-wrap{display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:end}
-    .footer-links{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-    .footer-links a{padding:.8rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm);transition:background .18s}
+    .footer-wrap{display:flex;flex-direction:row;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .footer-left{flex:1 1 320px;min-width:0}
+    .footer-right{flex:0 0 auto}
+    .footer-left .brand{margin-bottom:var(--space-4)}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-2);align-items:flex-end}
+    .footer-links a{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
     .footer-links a:hover{background:var(--color-surface-2)}
-    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:72ch}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
+
     @media (max-width: 1024px){
-      .hero-grid,.split,.grid-4,.principles,.footer-wrap{grid-template-columns:1fr}
+      .hero-grid,.split,.grid-4,.principles{grid-template-columns:1fr}
       .grid-3{grid-template-columns:repeat(2,1fr)}
       .section-head{flex-direction:column;align-items:flex-start}
       .contact-cta{flex-direction:column;align-items:flex-start}
+      .footer-wrap{flex-direction:column}
+      .footer-right{width:100%}
+      .footer-links{flex-direction:row;flex-wrap:wrap;align-items:flex-start}
     }
     @media (max-width: 720px){
       .nav-links{display:none}
@@ -229,8 +236,6 @@
           <article class="card"><span class="tag">05</span><h3>外部體驗群</h3><p>讓還在觀望的新朋友先認識社群氛圍、教學方式與內容品質，降低加入前的不確定感，歡迎先進來感受。</p></article>
           <article class="card"><span class="tag">06</span><h3>完整學習系統</h3><p>從基礎入門、技術分析、策略應用到量化思維，系統化陪你建立交易框架，不是喊單群，是真的讓你學會。</p></article>
         </div>
-
-        <!-- 聯絡台區管理 CTA -->
         <div class="contact-cta">
           <div class="contact-cta-text">
             <strong>想加入深度交流？聯絡台區管理申請加入</strong>
@@ -318,8 +323,8 @@
 
   <footer class="footer">
     <div class="container footer-wrap">
-      <div>
-        <div class="brand" style="margin-bottom:1rem;">
+      <div class="footer-left">
+        <div class="brand">
           <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
             <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
@@ -327,11 +332,11 @@
           </svg>
           <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
         </div>
-        <p style="color:var(--color-text-muted);max-width:52ch;">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
+        <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4);">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
         <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與停損管理。</p>
       </div>
-      <div>
-        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;">Follow Us</p>
+      <div class="footer-right">
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;text-align:right;">Follow Us</p>
         <div class="footer-links" aria-label="外部連結">
           <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
           <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
