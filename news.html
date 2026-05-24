@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>最新動態｜君瀾一品</title>
+  <meta name="description" content="君瀾一品最新動態頁面，包含每日市場觀點、教學文章、社群公告、直播通知與更新日誌。"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
+      --radius-sm:.375rem;--radius-md:.75rem;--radius-lg:1rem;--radius-xl:1.5rem;--radius-full:9999px;
+      --color-bg:#f5f3ee;--color-surface:#fbfaf7;--color-surface-2:#f0ede7;--color-surface-offset:#e9e4db;
+      --color-border:rgba(40,37,29,.12);--color-text:#211d16;--color-text-muted:#68635c;--color-text-faint:#9d988f;
+      --color-primary:#0e7c86;--color-primary-hover:#095b63;--color-primary-highlight:rgba(14,124,134,.12);
+      --color-gold:#c8921f;--color-gold-highlight:rgba(200,146,31,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 32px rgba(0,0,0,.08);
+      --content:1180px;--font-body:'Satoshi','Inter',sans-serif;--font-display:'Cabinet Grotesk','Inter',sans-serif;
+    }
+    [data-theme="dark"]{
+      --color-bg:#0f1113;--color-surface:#15181c;--color-surface-2:#1b2025;--color-surface-offset:#222831;
+      --color-border:rgba(235,239,244,.12);--color-text:#edf1f5;--color-text-muted:#a8b0b8;--color-text-faint:#6f7983;
+      --color-primary:#39b8c4;--color-primary-hover:#78d6df;--color-primary-highlight:rgba(57,184,196,.12);
+      --color-gold:#efba58;--color-gold-highlight:rgba(239,186,88,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 20px 48px rgba(0,0,0,.32);
+    }
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+      background:radial-gradient(circle at top right,rgba(57,184,196,.06),transparent 28%),var(--color-bg);
+      color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:0}
+    .skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
+      background:color-mix(in srgb,var(--color-bg) 74%,transparent);border-bottom:1px solid var(--color-border)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .logo{width:42px;height:42px;flex-shrink:0;padding:8px;border-radius:14px;
+      background:linear-gradient(135deg,var(--color-primary-highlight),transparent),var(--color-surface-2);
+      border:1px solid var(--color-border)}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.04em}
+    .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover{color:var(--color-text)}
+    .nav-links a.active{color:var(--color-primary);font-weight:700}
+    .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;
+      border:1px solid var(--color-border);background:var(--color-surface);transition:background .18s}
+    .theme-toggle:hover{background:var(--color-surface-2)}
+
+    .page-hero{padding:clamp(3rem,6vw,5rem) 0 var(--space-12)}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.5rem .9rem;
+      border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);
+      font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase}
+    .page-hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05}
+    .page-hero p{margin-top:var(--space-4);max-width:64ch;color:var(--color-text-muted)}
+
+    .highlight-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-6);margin-bottom:var(--space-16)}
+    .hero-card,.mini-stack article,.news-card,.timeline-card,.notice-card,.log-card{
+      background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .hero-card{padding:var(--space-8)}
+    .card-tag{display:inline-flex;padding:.35rem .75rem;border-radius:var(--radius-full);font-size:var(--text-xs);
+      letter-spacing:.08em;text-transform:uppercase;background:var(--color-primary-highlight);color:var(--color-primary);margin-bottom:var(--space-4)}
+    .hero-card h2{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1;margin-bottom:var(--space-4)}
+    .hero-card p{color:var(--color-text-muted);margin-bottom:var(--space-6);max-width:58ch}
+    .hero-meta{display:flex;gap:var(--space-3);flex-wrap:wrap;font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-6)}
+    .hero-points{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+    .hero-points li{padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg);font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .mini-stack{display:grid;gap:var(--space-4)}
+    .mini-stack article{padding:var(--space-6)}
+    .mini-stack h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-2)}
+    .mini-stack p{font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .section{padding:var(--space-16) 0}
+    .section + .section{border-top:1px solid var(--color-border)}
+    .section-label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3)}
+    .section h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .section .lead{color:var(--color-text-muted);max-width:72ch;margin-bottom:var(--space-8)}
+
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+    .news-card{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)}
+    .news-card .meta{display:flex;justify-content:space-between;gap:var(--space-3);font-size:var(--text-xs);color:var(--color-text-faint)}
+    .badge{display:inline-flex;padding:.25rem .65rem;border-radius:var(--radius-full);font-size:var(--text-xs)}
+    .badge.market{background:var(--color-primary-highlight);color:var(--color-primary)}
+    .badge.education{background:var(--color-gold-highlight);color:var(--color-gold)}
+    .badge.notice{background:var(--color-surface-2);color:var(--color-text-muted)}
+    .news-card h3{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2}
+    .news-card p{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .news-card a{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--text-sm);font-weight:700;color:var(--color-primary)}
+
+    .timeline{display:grid;gap:var(--space-4)}
+    .timeline-card{display:grid;grid-template-columns:120px 1fr;gap:var(--space-6);padding:var(--space-6)}
+    .timeline-date{font-family:var(--font-display);font-size:var(--text-base);color:var(--color-primary)}
+    .timeline-card h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-2)}
+    .timeline-card p{font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .notice-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)}
+    .notice-card,.log-card{padding:var(--space-6)}
+    .notice-card h3,.log-card h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-4)}
+    .notice-list,.log-list{list-style:none;display:flex;flex-direction:column;gap:var(--space-3)}
+    .notice-list li,.log-list li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:1.2rem;position:relative}
+    .notice-list li::before,.log-list li::before{content:"•";position:absolute;left:0;color:var(--color-primary)}
+
+    .cta-band{padding:var(--space-10) var(--space-8);
+      background:linear-gradient(135deg,var(--color-surface),var(--color-surface-2));
+      border:1px solid var(--color-border);border-radius:var(--radius-xl);
+      display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;
+      margin:var(--space-16) 0}
+    .cta-band h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .cta-band p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:52ch}
+    .cta-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
+    .btn{min-height:48px;padding:.9rem 1.35rem;border-radius:var(--radius-full);display:inline-flex;
+      align-items:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent;
+      transition:background .18s,color .18s}
+    .btn-primary{background:var(--color-primary);color:#041518}
+    .btn-primary:hover{background:var(--color-primary-hover);color:#fff}
+    .btn-gold{background:var(--color-gold);color:#1a0e00}
+
+    .footer{padding:var(--space-12) 0 var(--space-8);border-top:1px solid var(--color-border)}
+    .footer-wrap{display:flex;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .footer-left{flex:1 1 320px}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-2);align-items:flex-end}
+    .footer-links a{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);
+      background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
+    .footer-links a:hover{background:var(--color-surface-2)}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
+
+    @media(max-width:980px){
+      .highlight-grid,.notice-grid,.news-grid{grid-template-columns:1fr}
+      .timeline-card{grid-template-columns:1fr;gap:var(--space-3)}
+      .hero-points{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .nav-links{display:none}
+      .cta-band{flex-direction:column;align-items:flex-start}
+      .footer-wrap{flex-direction:column}
+      .footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./index.html" aria-label="君瀾一品首頁">
+      <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+    </a>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="./index.html">首頁</a>
+      <a href="./learn.html">學習專區</a>
+      <a href="./community.html">社群環境</a>
+      <a href="./strategy.html">策略服務</a>
+      <a href="./news.html" class="active">最新動態</a>
+      <a href="./about.html">關於我們</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <div class="page-hero">
+      <span class="eyebrow">News</span>
+      <h1>市場每天都在變，<br>觀點、教學與公告也要同步更新。</h1>
+      <p>這裡整理君瀾一品每日市場觀點、教學文章、社群公告、直播通知與策略更新紀錄，讓你不用在群裡翻很久，也能快速掌握最近重點。</p>
+    </div>
+
+    <section class="highlight-grid" aria-label="焦點更新">
+      <article class="hero-card">
+        <span class="card-tag">焦點觀點</span>
+        <h2>本週市場主軸：先看結構是否延續，再決定要不要追價。</h2>
+        <div class="hero-meta">
+          <span>更新時間｜每日上午與晚間</span>
+          <span>分類｜每日市場觀點</span>
+          <span>適用｜BTC / ETH / 主流幣</span>
+        </div>
+        <p>近期行情最大的重點不是波動大小，而是結構有沒有真正延續。當市場只是在高低點附近掃流動性，最重要的不是衝第一時間，而是等確認後再出手。</p>
+        <ul class="hero-points">
+          <li>早盤更新：大方向與關鍵價位提醒</li>
+          <li>晚盤補充：美盤波動與追單風險提醒</li>
+          <li>關鍵區間：支撐壓力、流動性、結構位</li>
+          <li>風控重點：哪些位置不能硬追、哪些位置該減倉</li>
+        </ul>
+      </article>
+
+      <div class="mini-stack">
+        <article>
+          <span class="badge education">教學文章</span>
+          <h3>什麼叫結構確認？不是看到突破就直接追。</h3>
+          <p>從假突破、回踩確認到量能配合，帶你看懂真正能進場的訊號長什麼樣。</p>
+        </article>
+        <article>
+          <span class="badge notice">社群公告</span>
+          <h3>本週直播預告：主力洗盤解析與反手邏輯。</h3>
+          <p>直播內容會從盤面實例拆解，教你怎麼分辨洗盤、誘多與真正的趨勢延續。</p>
+        </article>
+        <article>
+          <span class="badge market">更新日誌</span>
+          <h3>TradingView 指標顯示邏輯已微調。</h3>
+          <p>新版增加多時間框架資訊可讀性，讓關鍵區間判讀更直觀。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="views">
+      <p class="section-label">每日市場觀點</p>
+      <h2>不是只講方向，而是告訴你現在為什麼不能亂追。</h2>
+      <p class="lead">每日觀點的價值不在於喊多喊空，而是在行情很亂的時候，幫你把市場拆解成能執行的判斷框架。</p>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="meta"><span class="badge market">Market</span><span>08:30 更新</span></div>
+          <h3>BTC 進入前高壓力帶，追價風險升高。</h3>
+          <p>觀察重點放在前高流動性是否先被掃掉，以及掃完之後能不能站穩。若不能站穩，回撤修正的機率就會明顯提升。</p>
+          <a href="#">閱讀重點 →</a>
+        </article>
+        <article class="news-card">
+          <div class="meta"><span class="badge market">Market</span><span>13:20 更新</span></div>
+          <h3>ETH 結構還沒翻多，反彈先當修正看。</h3>
+          <p>短週期看起來有力，但中週期結構尚未改變。這種時候若要進場，倉位與止損就不能放鬆。</p>
+          <a href="#">閱讀重點 →</a>
+        </article>
+        <article class="news-card">
+          <div class="meta"><span class="badge market">Market</span><span>20:45 更新</span></div>
+          <h3>美盤開啟後，注意波動擴大但方向未必延續。</h3>
+          <p>夜盤最常見的是先擴大波動、再回到區間中段。這種時候耐心比速度更值錢。</p>
+          <a href="#">閱讀重點 →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <p class="section-label">教學文章</p>
+      <h2>把盤面語言翻成你看得懂的交易知識。</h2>
+      <p class="lead">教學文章會持續把群內常講的概念拆開寫清楚，讓新手可以回頭複習，老手也能快速校正自己的觀念。</p>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="meta"><span class="badge education">Article</span><span>新手入門</span></div>
+          <h3>K 線不是拿來背形態，而是看買賣雙方失衡。</h3>
+          <p>你不用背一堆花俏名字，先學會看哪一根 K 線真的有意義，交易就會清楚很多。</p>
+          <a href="#">閱讀文章 →</a>
+        </article>
+        <article class="news-card">
+          <div class="meta"><span class="badge education">Article</span><span>策略應用</span></div>
+          <h3>主力洗盤怎麼看？先分辨它是在收人還是在出貨。</h3>
+          <p>同樣是插針，位置不同、成交量不同、前後結構不同，代表的意思就完全不同。</p>
+          <a href="#">閱讀文章 →</a>
+        </article>
+        <article class="news-card">
+          <div class="meta"><span class="badge education">Article</span><span>風控管理</span></div>
+          <h3>止損不是怕輸，而是保留你下一次出手的資格。</h3>
+          <p>真正拖垮帳戶的通常不是一筆虧損，而是不肯認錯、一路加碼硬扛。</p>
+          <a href="#">閱讀文章 →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <p class="section-label">直播通知</p>
+      <h2>直播不只講概念，會直接拆真實盤面。</h2>
+      <p class="lead">固定整理近期直播安排，讓你知道什麼時間有盤面解析、教學重點是什麼，以及看完之後你應該帶走哪些能力。</p>
+      <div class="timeline">
+        <article class="timeline-card">
+          <div class="timeline-date">週二 21:00</div>
+          <div>
+            <h3>盤面解析直播：本週結構主線與風險位</h3>
+            <p>針對 BTC、ETH 與幾個主流幣做本週結構梳理，整理關鍵支撐、壓力與容易出現假動作的位置。</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <div class="timeline-date">週四 21:00</div>
+          <div>
+            <h3>教學直播：洗盤、誘多、誘空的差別</h3>
+            <p>會從真實案例拆解主力常見操作，讓你知道哪些動作只是掃單，哪些是真的要走趨勢。</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <div class="timeline-date">週日 20:30</div>
+          <div>
+            <h3>週回顧直播：交易紀錄、錯誤復盤、下週規劃</h3>
+            <p>把一週的重點交易整理成可複盤的紀錄，包含做對的原因與做錯的地方，讓大家下週更穩。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="updates">
+      <p class="section-label">公告與更新</p>
+      <h2>社群有什麼變動、工具更新了什麼，這裡一次看。</h2>
+      <p class="lead">把社群運作公告與策略系統更新日誌分開整理，避免重要通知被日常聊天洗掉。</p>
+      <div class="notice-grid">
+        <article class="notice-card">
+          <h3>社群公告</h3>
+          <ul class="notice-list">
+            <li>新進群成員請先閱讀群規與固定置頂內容。</li>
+            <li>直播通知會提前於群內公告，重要主題建議準時參與。</li>
+            <li>實盤帶單內容禁止外流、截圖轉傳或二次販售。</li>
+            <li>體驗群與內部群權限不同，請依規範申請升級。</li>
+          </ul>
+        </article>
+        <article class="log-card">
+          <h3>更新日誌</h3>
+          <ul class="log-list">
+            <li>TradingView 指標版面微調，提升關鍵價位辨識度。</li>
+            <li>自動反手策略補上更明確的風控提醒欄位。</li>
+            <li>教學文章分類重新整理，查找新手內容更快。</li>
+            <li>首頁與策略頁 CTA 導流按鈕樣式統一更新。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h3>想第一時間收到更新，不用等別人轉貼。</h3>
+        <p>加入體驗群先看每日觀點與公告，想看更完整的實盤與教學內容，再申請進入內部交流群。</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
+        <a class="btn btn-gold" href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區管理</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-wrap">
+    <div class="footer-left">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+      </div>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4)">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
+      <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與止損管理。</p>
+    </div>
+    <div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;text-align:right">Follow Us</p>
+      <div class="footer-links" aria-label="外部連結">
+        <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
+        <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
+        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
+        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區管理</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    const toggle = document.querySelector('[data-theme-toggle]');
+    const root = document.documentElement;
+    let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const render = () => {
+      toggle.innerHTML = theme === 'dark'
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      toggle.setAttribute('aria-label', theme === 'dark' ? '切換為亮色模式' : '切換為暗色模式');
+    };
+    render();
+    toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); render(); });
+  })();
+</script>
+</body>
+</html>
