@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>君瀾一品｜合約策略交易社群</title>
+  <meta name="description" content="君瀾一品合約策略交易社群首頁，聚焦即時分析、量化策略、學習系統與社群陪跑。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --color-bg: #f5f3ee; --color-surface: #fbfaf7; --color-surface-2: #f0ede7; --color-surface-offset: #e9e4db;
+      --color-border: rgba(40,37,29,.12); --color-text: #211d16; --color-text-muted: #68635c; --color-text-faint: #9d988f;
+      --color-primary: #0e7c86; --color-primary-hover: #095b63; --color-primary-highlight: rgba(14,124,134,.12);
+      --color-gold: #c8921f; --color-danger: #8d4a1f; --shadow-sm: 0 1px 2px rgba(0,0,0,.06); --shadow-md: 0 12px 32px rgba(0,0,0,.08);
+      --content: 1180px; --font-body: 'Satoshi', 'Inter', sans-serif; --font-display: 'Cabinet Grotesk', 'Inter', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #0f1113; --color-surface: #15181c; --color-surface-2: #1b2025; --color-surface-offset: #222831;
+      --color-border: rgba(235,239,244,.12); --color-text: #edf1f5; --color-text-muted: #a8b0b8; --color-text-faint: #6f7983;
+      --color-primary: #39b8c4; --color-primary-hover: #78d6df; --color-primary-highlight: rgba(57,184,196,.12);
+      --color-gold: #efba58; --color-danger: #d08d61; --shadow-sm: 0 1px 2px rgba(0,0,0,.25); --shadow-md: 0 20px 48px rgba(0,0,0,.32);
+    }
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;background:
+      radial-gradient(circle at top right, rgba(57,184,196,.10), transparent 30%),
+      radial-gradient(circle at 10% 20%, rgba(239,186,88,.08), transparent 25%),
+      var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
+    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:0}.skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:color-mix(in srgb, var(--color-bg) 74%, transparent);border-bottom:1px solid var(--color-border)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .logo{width:42px;height:42px;padding:8px;border-radius:14px;background:linear-gradient(135deg, var(--color-primary-highlight), transparent), var(--color-surface-2);border:1px solid var(--color-border)}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.04em}
+    .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--color-text)}
+    .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;border:1px solid var(--color-border);background:var(--color-surface)}
+    .hero{padding:clamp(4rem, 8vw, 8rem) 0 var(--space-20)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-10);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.5rem .9rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase}
+    .hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.02;max-width:10ch}
+    .hero p{margin-top:var(--space-5);max-width:60ch;color:var(--color-text-muted)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-8)}
+    .btn{min-height:48px;padding:.95rem 1.35rem;border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent}
+    .btn-primary{background:var(--color-primary);color:#041518;box-shadow:var(--shadow-md)}
+    .btn-primary:hover{background:var(--color-primary-hover);color:white}
+    .btn-secondary{background:var(--color-surface);border-color:var(--color-border)}
+    .hero-note{margin-top:var(--space-5);font-size:var(--text-xs);color:var(--color-text-faint)}
+    .hero-card{position:relative;background:linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 80%, transparent), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-md);overflow:hidden}
+    .hero-card:before{content:"";position:absolute;inset:auto -10% -35% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle, rgba(57,184,196,.24), transparent 65%)}
+    .dashboard{display:grid;gap:var(--space-4)}
+    .ticker{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+    .panel,.mini-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:calc(var(--radius-xl) - .4rem)}
+    .mini-card{padding:var(--space-4)}
+    .mini-card span{display:block;font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-2)}
+    .mini-card strong{font-size:var(--text-lg);font-family:var(--font-display)}
+    .panel{padding:var(--space-5)}
+    .chart{height:210px;border-radius:var(--radius-lg);background:linear-gradient(180deg, rgba(57,184,196,.12), transparent), var(--color-surface-2);position:relative;overflow:hidden}
+    .chart svg{position:absolute;inset:0;width:100%;height:100%}
+    .section{padding:clamp(3.5rem, 6vw, 6rem) 0}
+    .section-head{display:flex;justify-content:space-between;gap:var(--space-6);align-items:end;margin-bottom:var(--space-8)}
+    .section-head h2{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05}
+    .section-head p{max-width:52ch;color:var(--color-text-muted)}
+    .grid-3,.grid-4,.grid-2{display:grid;gap:var(--space-4)}
+    .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(4,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{padding:var(--space-5);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);content-visibility:auto}
+    .card .tag{display:inline-flex;padding:.35rem .7rem;border-radius:var(--radius-full);background:var(--color-surface-2);font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-3)}
+    .card h3{font-size:var(--text-lg);font-family:var(--font-display);margin-bottom:var(--space-3)}
+    .card p{color:var(--color-text-muted);font-size:var(--text-sm)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
+    .community-board{display:grid;gap:var(--space-4)}
+    .chat-shot{padding:var(--space-5);background:linear-gradient(180deg, var(--color-surface), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl)}
+    .chat-shot ul{list-style:none;display:grid;gap:var(--space-3)}
+    .chat-shot li{padding:var(--space-3) var(--space-4);border-radius:var(--radius-lg);max-width:85%;font-size:var(--text-sm)}
+    .chat-shot li:nth-child(odd){background:var(--color-surface-offset)}
+    .chat-shot li:nth-child(even){margin-left:auto;background:var(--color-primary-highlight)}
+    .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+    .principle{padding:var(--space-5);border-radius:var(--radius-xl);border:1px solid var(--color-border);background:linear-gradient(180deg, var(--color-surface), transparent)}
+    .principle strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .footer{padding:var(--space-16) 0 var(--space-10);border-top:1px solid var(--color-border)}
+    .footer-wrap{display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:end}
+    .footer-links{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .footer-links a{padding:.8rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm)}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:72ch}
+    @media (max-width: 1024px){
+      .hero-grid,.split,.grid-4,.principles,.footer-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .section-head{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width: 720px){
+      .nav-links{display:none}
+      .hero{padding-top:var(--space-10)}
+      .hero-grid,.ticker,.grid-3,.grid-2{grid-template-columns:1fr}
+      .hero h1{max-width:12ch}
+      .cta-row{flex-direction:column}
+      .btn{width:100%}
+      .container{width:min(calc(100% - 1.25rem), var(--content))}
+    }
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="君瀾一品首頁">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <div class="brand-text">
+          <strong>君瀾一品</strong>
+          <span>合約策略交易社群</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="主選單">
+        <a href="#offer">我們提供</a>
+        <a href="#learning">學習系統</a>
+        <a href="#community">社群環境</a>
+        <a href="#belief">核心理念</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Contract Strategy Community</span>
+          <h1>用風控和紀律，把交易做成可複製的系統。</h1>
+          <p>君瀾一品專注於合約策略交易社群經營，整合每日即時分析、TradingView 量化指標、量化自動反手策略與真實開單紀錄，讓新手有路徑、老手有節奏、團隊有共識。</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://t.me/" target="_blank" rel="noopener noreferrer">加入內部交流群</a>
+            <a class="btn btn-secondary" href="https://t.me/" target="_blank" rel="noopener noreferrer">加入外部體驗群</a>
+          </div>
+          <p class="hero-note">核心節奏：盤前判讀、盤中執行、盤後復盤。先活下來，再把勝率和盈虧比慢慢拉開。</p>
+        </div>
+        <div class="hero-card" aria-label="策略展示面板">
+          <div class="dashboard">
+            <div class="ticker">
+              <div class="mini-card"><span>即時分析</span><strong>Daily Call</strong></div>
+              <div class="mini-card"><span>量化工具</span><strong>TV Signal</strong></div>
+              <div class="mini-card"><span>交易紀錄</span><strong>Live Log</strong></div>
+            </div>
+            <div class="panel">
+              <div style="display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:1rem;">
+                <div>
+                  <div style="font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:.12em;text-transform:uppercase;">Trend Structure</div>
+                  <div style="font-family:var(--font-display);font-size:var(--text-lg);margin-top:.35rem;">趨勢方向 + 風險節奏同步判讀</div>
+                </div>
+                <div style="padding:.45rem .7rem;border-radius:999px;background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);">Risk First</div>
+              </div>
+              <div class="chart">
+                <svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="lineFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(57,184,196,.55)"/>
+                      <stop offset="100%" stop-color="rgba(57,184,196,0)"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 190 C45 176, 72 110, 115 132 S190 205, 230 160 S315 66, 370 98 S450 202, 520 126 S575 84, 600 68 L600 240 L0 240 Z" fill="url(#lineFill)"></path>
+                  <path d="M0 190 C45 176, 72 110, 115 132 S190 205, 230 160 S315 66, 370 98 S450 202, 520 126 S575 84, 600 68" fill="none" stroke="currentColor" stroke-opacity=".9" stroke-width="3.5"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="offer">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">What We Offer</span>
+            <h2>不是只給點位，而是給你完整交易節奏。</h2>
+          </div>
+          <p>首頁先把核心價值講清楚：你加入後可以看到什麼、學到什麼、跟到什麼，以及怎麼透過社群和策略把執行變穩。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="tag">01</span><h3>每日實時分析帶單</h3><p>盤前先講劇本，盤中即時追蹤走勢，盤後整理執行邏輯，讓學員不是只抄單，而是慢慢理解為什麼這裡能進、哪裡該退。</p></article>
+          <article class="card"><span class="tag">02</span><h3>TradingView 量化指標</h3><p>把主觀判斷壓縮成可視化訊號，讓趨勢、結構、節奏更容易被看懂，特別適合正在建立交易框架的人。</p></article>
+          <article class="card"><span class="tag">03</span><h3>量化自動反手策略</h3><p>針對快速變盤環境，把策略切換與方向反轉做成更有紀律的機制，降低臨場情緒對決策的干擾。</p></article>
+          <article class="card"><span class="tag">04</span><h3>真實開單數據紀錄</h3><p>不是只秀結果，而是保留進場、出場、停損與盈虧節奏，讓社群成員能回頭複盤，看到策略真正的長期樣子。</p></article>
+          <article class="card"><span class="tag">05</span><h3>內部交流群</h3><p>給已經準備認真做的人，強調同步策略、節奏管理與實盤交流，提升執行的一致性和學習效率。</p></article>
+          <article class="card"><span class="tag">06</span><h3>外部體驗群</h3><p>讓還在觀望的新朋友先認識社群氛圍、教學方式與內容品質，降低加入前的不確定感。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="learning">
+      <div class="container split">
+        <div>
+          <div class="section-head" style="margin-bottom:1.5rem;display:block;">
+            <span class="eyebrow">Learning System</span>
+            <h2 style="margin-top:1rem;">完整學習系統，從零到有地建立交易思維。</h2>
+            <p style="margin-top:1rem;">學習區塊不只是在列課程名稱，而是讓訪客一眼知道這個社群不是喊單群，而是一個能把知識、方法和紀律串起來的訓練場。</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="card"><h3>基礎入門</h3><p>先把交易工具、圖表觀念與下單流程建立好，避免一開始就被資訊量壓垮。</p></article>
+          <article class="card"><h3>技術分析</h3><p>把 K 線、結構、高低點與趨勢判斷變成有層次的理解，不再只看單一指標。</p></article>
+          <article class="card"><h3>策略應用</h3><p>學會把觀點變成執行，知道什麼情境用什麼邏輯，不再每一單都靠感覺。</p></article>
+          <article class="card"><h3>量化思維</h3><p>用規則化視角看市場，把模糊感受慢慢變成可測試、可記錄、可修正的策略模型。</p></article>
+          <article class="card"><h3>風控管理</h3><p>停損、倉位、資金配置與風險暴露都會被系統化處理，交易先求穩，再求擴張。</p></article>
+          <article class="card"><h3>紀律執行</h3><p>讓策略不是看得懂而已，而是真的做得到，這也是多數人從知道到做到之間最難的一段。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Community</span>
+            <h2>社群不是背景板，而是每天都在運轉的交易現場。</h2>
+          </div>
+          <p>這裡用偏真實互動感的方式呈現社群氛圍，讓首頁就能帶出即時策略分享、群組互動、教學直播、盤面解析與學員交流的感覺。</p>
+        </div>
+        <div class="split">
+          <div class="community-board">
+            <article class="card"><h3>即時策略分享</h3><p>盤中關鍵位、趨勢破壞、結構延續與風險提醒，會在第一時間同步到群內，幫助成員維持同一個交易語境。</p></article>
+            <article class="card"><h3>教學直播與盤面解析</h3><p>不是只有結果回顧，也會拆解怎麼看、怎麼等、怎麼做，讓學員在直播裡把邏輯補起來。</p></article>
+            <article class="card"><h3>學員交流與成長</h3><p>社群會累積自己的語言、節奏和案例，成長不只靠老師，也靠彼此在實戰裡交換經驗。</p></article>
+          </div>
+          <div class="chat-shot" aria-label="群組互動示意">
+            <ul>
+              <li>今天早盤先看結構延續，不追第一根，等回踩再決定有沒有進場價值。</li>
+              <li>收到，這段先觀察量能配合，有破前高再跟。</li>
+              <li>剛剛直播裡提到的停損邏輯我整理好了，等等發圖給大家複盤。</li>
+              <li>這種震盪盤最怕硬做，先把手收住也是一種紀律。</li>
+              <li>晚點盤後一起看今天這筆為什麼能抱、另一筆為什麼該早點退。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="belief">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Core Belief</span>
+            <h2>我們的核心理念，只有四件事。</h2>
+          </div>
+          <p>首頁最後一段不需要講太滿，重點是把品牌底層價值釘住，讓訪客知道這個社群的交易文化到底站在哪一邊。</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><strong>風控優先</strong><p>先思考錯了怎麼退，不先幻想對了能賺多少。</p></div>
+          <div class="principle"><strong>大賺小賠</strong><p>盈虧比和執行節奏比單次勝負更重要，重點是拉長週期後的正期望。</p></div>
+          <div class="principle"><strong>紀律交易</strong><p>真正能保護帳戶的不是情緒高昂，而是願意照規則一遍遍做。</p></div>
+          <div class="principle"><strong>長期穩定</strong><p>交易不是追爆發，而是把能持續活下來的模式慢慢放大。</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;">
+          <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+          </svg>
+          <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+        </div>
+        <p style="color:var(--color-text-muted);max-width:52ch;">把交易做成一套有記錄、有規則、有節奏的長期系統。首頁現在先聚焦品牌主張與轉換，後續可以再往 Learn、Community、Strategy、News、About 擴充。</p>
+        <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與停損管理。</p>
+      </div>
+      <div class="footer-links" aria-label="外部連結">
+        <a href="https://t.me/" target="_blank" rel="noopener noreferrer">TG 內部交流群</a>
+        <a href="https://t.me/" target="_blank" rel="noopener noreferrer">TG 外部體驗群</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView</a>
+        <a href="mailto:service@example.com" target="_blank" rel="noopener noreferrer">聯絡方式</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const renderIcon = () => {
+        toggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        toggle.setAttribute('aria-label', theme === 'dark' ? '切換為亮色模式' : '切換為暗色模式');
+      };
+      renderIcon();
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
