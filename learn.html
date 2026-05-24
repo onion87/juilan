@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" data-theme="dark">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>學習專區｜君瀾一品合約策略交易社群</title>
   <meta name="description" content="從零開始的完整合約交易學習系統，涵蓋K線教學、市場結構、風控管理、心態紀律。"/>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <script>
+    (function(){
+      var d=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+      document.documentElement.setAttribute('data-theme',d);
+    })();
+  </script>
   <style>
     :root,[data-theme="light"]{
       --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
@@ -17,14 +23,16 @@
       --color-bg:#f5f3ee;--color-surface:#fbfaf7;--color-surface-2:#f0ede7;--color-surface-offset:#e9e4db;
       --color-border:rgba(40,37,29,.12);--color-text:#211d16;--color-text-muted:#68635c;--color-text-faint:#9d988f;
       --color-primary:#0e7c86;--color-primary-hover:#095b63;--color-primary-highlight:rgba(14,124,134,.12);
-      --color-gold:#c8921f;--shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 32px rgba(0,0,0,.08);
+      --color-gold:#c8921f;--color-gold-highlight:rgba(200,146,31,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 32px rgba(0,0,0,.08);
       --content:1180px;--font-body:'Satoshi','Inter',sans-serif;--font-display:'Cabinet Grotesk','Inter',sans-serif;
     }
     [data-theme="dark"]{
       --color-bg:#0f1113;--color-surface:#15181c;--color-surface-2:#1b2025;--color-surface-offset:#222831;
       --color-border:rgba(235,239,244,.12);--color-text:#edf1f5;--color-text-muted:#a8b0b8;--color-text-faint:#6f7983;
       --color-primary:#39b8c4;--color-primary-hover:#78d6df;--color-primary-highlight:rgba(57,184,196,.12);
-      --color-gold:#efba58;--shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 20px 48px rgba(0,0,0,.32);
+      --color-gold:#efba58;--color-gold-highlight:rgba(239,186,88,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 20px 48px rgba(0,0,0,.32);
     }
     *,:before,:after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
@@ -42,4 +50,215 @@
     .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
     .nav-links a:hover{color:var(--color-text)}
     .nav-links a.active{color:var(--color-primary);font-weight:700}
-    .theme-toggle{width
+    .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;border:1px solid var(--color-border);background:var(--color-surface);transition:background .18s}
+    .theme-toggle:hover{background:var(--color-surface-2)}
+    .page-hero{padding:clamp(3rem,6vw,5rem) 0;border-bottom:1px solid var(--color-border)}
+    .page-hero h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.1;margin-bottom:var(--space-4)}
+    .page-hero p{font-size:var(--text-lg);color:var(--color-text-muted);max-width:60ch}
+    .section{padding:clamp(3rem,6vw,5rem) 0}
+    .section+.section{border-top:1px solid var(--color-border)}
+    .section-label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3)}
+    .section-title{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4);line-height:1.15}
+    .section-lead{color:var(--color-text-muted);max-width:72ch;margin-bottom:var(--space-8)}
+    .modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+    .module-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-3)}
+    .module-num{font-family:var(--font-display);font-size:var(--text-xs);letter-spacing:.12em;color:var(--color-primary);text-transform:uppercase}
+    .module-card h3{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;line-height:1.2}
+    .module-card p{font-size:var(--text-sm);color:var(--color-text-muted);flex:1}
+    .module-tags{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+    .tag{padding:.25rem .75rem;border-radius:var(--radius-full);background:var(--color-surface-2);border:1px solid var(--color-border);font-size:var(--text-xs);color:var(--color-text-muted)}
+    .faq-list{display:grid;gap:var(--space-3)}
+    .faq-item{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden}
+    .faq-q{width:100%;text-align:left;padding:var(--space-4) var(--space-5);display:flex;justify-content:space-between;align-items:center;font-size:var(--text-sm);font-weight:600;gap:var(--space-4)}
+    .faq-q:hover{background:var(--color-surface-2)}
+    .faq-arrow{transition:transform .24s;flex-shrink:0;color:var(--color-text-faint)}
+    .faq-item.open .faq-arrow{transform:rotate(180deg)}
+    .faq-a{display:none;padding:0 var(--space-5) var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    .cta-band{padding:var(--space-10) var(--space-8);background:linear-gradient(135deg,var(--color-surface),var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;margin:var(--space-16) 0}
+    .cta-band h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .cta-band p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:52ch}
+    .cta-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
+    .btn{min-height:48px;padding:.9rem 1.5rem;border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent;transition:background .18s,color .18s}
+    .btn-primary{background:var(--color-primary);color:#041518}
+    .btn-primary:hover{background:var(--color-primary-hover);color:#fff}
+    .btn-gold{background:var(--color-gold);color:#1a0e00}
+    .btn-gold:hover{filter:brightness(1.1)}
+    .btn-outline{border-color:var(--color-border);background:var(--color-surface)}
+    .btn-outline:hover{background:var(--color-surface-2)}
+    .footer{padding:var(--space-12) 0 var(--space-8);border-top:1px solid var(--color-border)}
+    .footer-wrap{display:flex;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .footer-left{flex:1 1 320px}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-2);align-items:flex-end}
+    .footer-links a{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
+    .footer-links a:hover{background:var(--color-surface-2)}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
+    @media(max-width:900px){.modules-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.modules-grid{grid-template-columns:1fr}.nav-links{display:none}.cta-band{flex-direction:column;align-items:flex-start}.footer-wrap{flex-direction:column}.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<a href="#main" style="position:absolute;left:-9999px">跳到主要內容</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./index.html" aria-label="君瀾一品首頁">
+      <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+    </a>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="./index.html">首頁</a>
+      <a href="./learn.html" class="active">學習專區</a>
+      <a href="./community.html">社群環境</a>
+      <a href="./strategy.html">策略服務</a>
+      <a href="./news.html">最新動態</a>
+      <a href="./about.html">關於我們</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式"></button>
+  </div>
+</header>
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <p class="section-label">學習專區</p>
+      <h1>從零開始，建立屬於你的交易系統。</h1>
+      <p>六大學習模組，帶你從基礎認識市場、理解主力邏輯，到建立完整風控思維與執行紀律。</p>
+    </div>
+  </div>
+  <div class="container">
+    <section class="section" id="modules">
+      <p class="section-label">學習模組</p>
+      <h2 class="section-title">六大模組，完整交易學習路徑。</h2>
+      <p class="section-lead">每個模組都是下一個模組的基礎，按順序學習能讓你的交易思維快速系統化。</p>
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-num">Module 01</div>
+          <h3>新手入門</h3>
+          <p>了解什麼是合約、槓桿、爆倉，以及進入市場前你必須知道的基本概念。</p>
+          <div class="module-tags"><span class="tag">合約基礎</span><span class="tag">槓桿觀念</span><span class="tag">爆倉機制</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">Module 02</div>
+          <h3>K線教學</h3>
+          <p>從單根K線到組合型態，學會讀懂市場語言，理解多空力道的轉換訊號。</p>
+          <div class="module-tags"><span class="tag">K線型態</span><span class="tag">多空訊號</span><span class="tag">轉折辨識</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">Module 03</div>
+          <h3>市場結構</h3>
+          <p>高低點結構、趨勢確認、盤整辨識，建立你對市場節奏的判斷基礎。</p>
+          <div class="module-tags"><span class="tag">高低點結構</span><span class="tag">趨勢判斷</span><span class="tag">盤整辨識</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">Module 04</div>
+          <h3>主力洗盤解析</h3>
+          <p>理解主力如何製造假突破、誘多誘空，學會不被市場情緒帶著走。</p>
+          <div class="module-tags"><span class="tag">假突破</span><span class="tag">誘多誘空</span><span class="tag">主力邏輯</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">Module 05</div>
+          <h3>風控管理</h3>
+          <p>單筆風險計算、倉位管理、連虧應對策略，把「活下去」放在獲利之前。</p>
+          <div class="module-tags"><span class="tag">倉位管理</span><span class="tag">風報比</span><span class="tag">連虧應對</span></div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">Module 06</div>
+          <h3>心態與紀律</h3>
+          <p>FOMO、報復交易、過度自信——認識這些心理陷阱，才能長期穩定執行策略。</p>
+          <div class="module-tags"><span class="tag">FOMO</span><span class="tag">報復交易</span><span class="tag">執行紀律</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="faq">
+      <p class="section-label">常見問題</p>
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-lead">有問題先找這裡，找不到再來問助理。</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">加入社群需要費用嗎？<svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a">外部體驗群免費加入，內部交流群為付費服務，詳細方案請直接聯絡台區助理詢問。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">我是完全新手，適合加入嗎？<svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a">完全適合。學習專區從最基礎的概念開始，外部體驗群也有每日市場解析，新手可以先觀察節奏再決定是否深入。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">帶單訊號可以直接跟嗎？<svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a">帶單訊號提供進出場參考，但我們強調每個人需要理解背後邏輯，而不是盲目複製。建議搭配學習模組一起使用，才能真正學會獨立判斷。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">TradingView 指標怎麼取得？<svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a">加入內部交流群後，助理會提供指標授權與安裝說明。如有疑問可直接在群內提問。</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">社群有保證獲利嗎？<svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-a">不保證獲利。任何交易都有風險，我們提供的是分析思路、工具與學習資源，最終決策與風險由交易者自行承擔。請在自身風險承受範圍內操作。</div>
+        </div>
+      </div>
+    </section>
+    <div class="cta-band">
+      <div>
+        <h3>準備好開始學習了嗎？</h3>
+        <p>先進來體驗群感受節奏，或直接聯絡台區助理了解完整學習方案。</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
+        <a class="btn btn-gold" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群</a>
+        <a class="btn btn-outline" href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container footer-wrap">
+    <div class="footer-left">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+      </div>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4)">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
+      <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與止損管理。</p>
+    </div>
+    <div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;text-align:right">Follow Us</p>
+      <div class="footer-links" aria-label="外部連結">
+        <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
+        <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
+        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
+        <a href="https://www.tiktok.com/@dafu5558" target="_blank" rel="noopener noreferrer">TikTok @dafu5558</a>
+        <a href="https://www.tiktok.com/@dufij55678" target="_blank" rel="noopener noreferrer">TikTok @dufij55678</a>
+        <a href="https://www.tiktok.com/@fuyao68" target="_blank" rel="noopener noreferrer">TikTok @fuyao68</a>
+        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  (()=>{
+    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+    let d=r.getAttribute('data-theme')||'light';
+    const render=()=>{
+      t.setAttribute('aria-label','切換'+(d==='dark'?'亮色':'深色')+'模式');
+      t.innerHTML=d==='dark'
+        ?'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        :'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    };
+    render();
+    t.addEventListener('click',()=>{
+      d=d==='dark'?'light':'dark';
+      r.setAttribute('data-theme',d);
+      try{localStorage.setItem('theme',d);}catch(e){}
+      render();
+    });
+  })();
+</script>
+</body>
+</html>
