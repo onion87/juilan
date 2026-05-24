@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>關於我們｜君瀾一品</title>
+  <meta name="description" content="君瀾一品關於我們頁面，介紹品牌理念、社群方向、交易文化、學習核心與聯絡方式。"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
+      --radius-sm:.375rem;--radius-md:.75rem;--radius-lg:1rem;--radius-xl:1.5rem;--radius-full:9999px;
+      --color-bg:#f5f3ee;--color-surface:#fbfaf7;--color-surface-2:#f0ede7;--color-surface-offset:#e9e4db;
+      --color-border:rgba(40,37,29,.12);--color-text:#211d16;--color-text-muted:#68635c;--color-text-faint:#9d988f;
+      --color-primary:#0e7c86;--color-primary-hover:#095b63;--color-primary-highlight:rgba(14,124,134,.12);
+      --color-gold:#c8921f;--color-gold-highlight:rgba(200,146,31,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 32px rgba(0,0,0,.08);
+      --content:1180px;--font-body:'Satoshi','Inter',sans-serif;--font-display:'Cabinet Grotesk','Inter',sans-serif;
+    }
+    [data-theme="dark"]{
+      --color-bg:#0f1113;--color-surface:#15181c;--color-surface-2:#1b2025;--color-surface-offset:#222831;
+      --color-border:rgba(235,239,244,.12);--color-text:#edf1f5;--color-text-muted:#a8b0b8;--color-text-faint:#6f7983;
+      --color-primary:#39b8c4;--color-primary-hover:#78d6df;--color-primary-highlight:rgba(57,184,196,.12);
+      --color-gold:#efba58;--color-gold-highlight:rgba(239,186,88,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 20px 48px rgba(0,0,0,.32);
+    }
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+      background:radial-gradient(circle at left top,rgba(239,186,88,.05),transparent 28%),var(--color-bg);
+      color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:0}
+    .skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
+      background:color-mix(in srgb,var(--color-bg) 74%,transparent);border-bottom:1px solid var(--color-border)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .logo{width:42px;height:42px;flex-shrink:0;padding:8px;border-radius:14px;
+      background:linear-gradient(135deg,var(--color-primary-highlight),transparent),var(--color-surface-2);
+      border:1px solid var(--color-border)}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.04em}
+    .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover{color:var(--color-text)}
+    .nav-links a.active{color:var(--color-primary);font-weight:700}
+    .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;
+      border:1px solid var(--color-border);background:var(--color-surface);transition:background .18s}
+    .theme-toggle:hover{background:var(--color-surface-2)}
+
+    .page-hero{padding:clamp(3rem,6vw,5rem) 0 var(--space-12)}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.5rem .9rem;
+      border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);
+      font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase}
+    .page-hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05}
+    .page-hero p{margin-top:var(--space-4);max-width:68ch;color:var(--color-text-muted)}
+
+    .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6);margin-bottom:var(--space-16)}
+    .intro-card,.value-card,.culture-card,.contact-card,.quote-card,.milestone-card{
+      background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .intro-card{padding:var(--space-8)}
+    .intro-card h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .intro-card p{color:var(--color-text-muted);margin-bottom:var(--space-4)}
+    .quote-card{padding:var(--space-8);display:flex;flex-direction:column;justify-content:space-between}
+    .quote-card blockquote{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.35}
+    .quote-card span{margin-top:var(--space-6);font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .section{padding:var(--space-16) 0}
+    .section + .section{border-top:1px solid var(--color-border)}
+    .section-label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3)}
+    .section h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .section .lead{color:var(--color-text-muted);max-width:72ch;margin-bottom:var(--space-8)}
+
+    .values-grid,.culture-grid,.contact-grid,.milestone-grid{display:grid;gap:var(--space-5)}
+    .values-grid{grid-template-columns:repeat(2,1fr)}
+    .culture-grid{grid-template-columns:repeat(3,1fr)}
+    .contact-grid{grid-template-columns:1fr 1fr}
+    .milestone-grid{grid-template-columns:repeat(4,1fr)}
+    .value-card,.culture-card,.contact-card,.milestone-card{padding:var(--space-6)}
+    .value-card h3,.culture-card h3,.contact-card h3,.milestone-card h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-3)}
+    .value-card p,.culture-card p,.contact-card p,.milestone-card p{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .value-card ul,.culture-card ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-4)}
+    .value-card ul li,.culture-card ul li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:1.2rem;position:relative}
+    .value-card ul li::before,.culture-card ul li::before{content:"›";position:absolute;left:0;color:var(--color-primary);font-weight:700}
+
+    .milestone-card strong{display:block;font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary);line-height:1;margin-bottom:var(--space-3)}
+
+    .contact-card a{display:inline-flex;align-items:center;gap:.4rem;margin-top:var(--space-4);font-size:var(--text-sm);font-weight:700;color:var(--color-primary)}
+
+    .cta-band{padding:var(--space-10) var(--space-8);
+      background:linear-gradient(135deg,var(--color-surface),var(--color-surface-2));
+      border:1px solid var(--color-border);border-radius:var(--radius-xl);
+      display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;
+      margin:var(--space-16) 0}
+    .cta-band h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .cta-band p{font-size:var(--text-sm);color:var(--color-text-muted);max-width:52ch}
+    .cta-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
+    .btn{min-height:48px;padding:.9rem 1.35rem;border-radius:var(--radius-full);display:inline-flex;
+      align-items:center;gap:.6rem;font-size:var(--text-sm);font-weight:700;border:1px solid transparent;
+      transition:background .18s,color .18s}
+    .btn-primary{background:var(--color-primary);color:#041518}
+    .btn-primary:hover{background:var(--color-primary-hover);color:#fff}
+    .btn-gold{background:var(--color-gold);color:#1a0e00}
+
+    .footer{padding:var(--space-12) 0 var(--space-8);border-top:1px solid var(--color-border)}
+    .footer-wrap{display:flex;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .footer-left{flex:1 1 320px}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-2);align-items:flex-end}
+    .footer-links a{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);
+      background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
+    .footer-links a:hover{background:var(--color-surface-2)}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
+
+    @media(max-width:980px){
+      .intro-grid,.values-grid,.culture-grid,.contact-grid,.milestone-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .nav-links{display:none}
+      .cta-band{flex-direction:column;align-items:flex-start}
+      .footer-wrap{flex-direction:column}
+      .footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./index.html" aria-label="君瀾一品首頁">
+      <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+    </a>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="./index.html">首頁</a>
+      <a href="./learn.html">學習專區</a>
+      <a href="./community.html">社群環境</a>
+      <a href="./strategy.html">策略服務</a>
+      <a href="./news.html">最新動態</a>
+      <a href="./about.html" class="active">關於我們</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <div class="page-hero">
+      <span class="eyebrow">About</span>
+      <h1>我們不是在賣夢，<br>而是在建立一套能走長遠的交易系統。</h1>
+      <p>君瀾一品成立的核心，不是讓人追逐短期刺激，而是把交易重新拉回紀律、風控、學習與長期穩定這四件真正重要的事。社群裡的每一項工具、每一次帶單、每一堂教學，最後都要回到這個基礎。</p>
+    </div>
+
+    <section class="intro-grid" aria-label="品牌介紹">
+      <article class="intro-card">
+        <h2>品牌理念</h2>
+        <p>在合約市場裡，很多人輸不是因為沒有看到機會，而是因為沒有方法、沒有紀律，也沒有一套可以重複執行的框架。</p>
+        <p>我們想做的，不是把社群做成只看訊號的地方，而是把它做成一個能讓人真正理解市場、建立系統、培養交易習慣的環境。</p>
+        <p>所以從一開始，君瀾一品就把「風控優先、大賺小賠、紀律交易、長期穩定」當成最核心的方向。</p>
+      </article>
+      <aside class="quote-card">
+        <blockquote>真正能留下來的人，不是每次都看對的人，而是每次都知道自己在做什麼的人。</blockquote>
+        <span>—— 君瀾一品交易文化核心句</span>
+      </aside>
+    </section>
+
+    <section class="section" id="direction">
+      <p class="section-label">社群方向</p>
+      <h2>先建立觀念，再提高勝率；先保住本金，再談放大利潤。</h2>
+      <p class="lead">我們的社群設計不是單純資訊群，而是把新手、進階使用者、以及有策略需求的人，放進同一套有層次的學習與交流架構裡。</p>
+      <div class="values-grid">
+        <article class="value-card">
+          <h3>給新手的方向</h3>
+          <p>先學會看懂市場、理解風險、建立正確心態，而不是急著找最快翻倍的方法。</p>
+          <ul>
+            <li>從 K 線、結構、風控開始建立基本盤</li>
+            <li>降低亂追單、亂加碼、情緒單的機率</li>
+            <li>讓你先活下來，再談做大</li>
+          </ul>
+        </article>
+        <article class="value-card">
+          <h3>給進階交易者的方向</h3>
+          <p>把主觀經驗整理成更穩定的流程，透過工具、紀錄與覆盤，提升執行一致性。</p>
+          <ul>
+            <li>善用量化指標提高判讀效率</li>
+            <li>建立可檢討、可複製的交易流程</li>
+            <li>把感覺交易轉成系統交易</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="culture">
+      <p class="section-label">交易文化</p>
+      <h2>我們重視的不只是會不會賺，而是你用什麼方式賺。</h2>
+      <p class="lead">同樣賺錢，有的人是靠紀律和系統，有的人是靠運氣和硬扛。前者能留下來，後者通常只是暫時還沒出事。</p>
+      <div class="culture-grid">
+        <article class="culture-card">
+          <h3>風控優先</h3>
+          <p>先定義最大虧損，再決定要不要進場。沒有止損的交易，不算交易，只是賭博。</p>
+          <ul>
+            <li>每筆單都先看風報比</li>
+            <li>不讓一次錯誤拖垮整體帳戶</li>
+          </ul>
+        </article>
+        <article class="culture-card">
+          <h3>紀律執行</h3>
+          <p>看得懂是一回事，做不做得到是另一回事。真正的差距通常出在執行，不是出在知識量。</p>
+          <ul>
+            <li>遵守進出場規則</li>
+            <li>減少臨盤情緒干擾</li>
+          </ul>
+        </article>
+        <article class="culture-card">
+          <h3>長期穩定</h3>
+          <p>我們不追求炫目的短期戰績，而是追求一套經得起時間檢驗的節奏與結果。</p>
+          <ul>
+            <li>重視資金曲線的平穩</li>
+            <li>重視可持續性的交易方式</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="learning">
+      <p class="section-label">學習核心</p>
+      <h2>知識不是越多越好，而是你能不能真的拿來用。</h2>
+      <p class="lead">我們的學習核心不是塞一堆術語，而是把最常用、最關鍵、最能實戰落地的內容，用可以理解與反覆練習的方式整理出來。</p>
+      <div class="milestone-grid">
+        <article class="milestone-card">
+          <strong>01</strong>
+          <h3>基礎入門</h3>
+          <p>建立對合約、槓桿、倉位與風險的基本理解。</p>
+        </article>
+        <article class="milestone-card">
+          <strong>02</strong>
+          <h3>技術分析</h3>
+          <p>學會看 K 線、市場結構、供需與流動性。</p>
+        </article>
+        <article class="milestone-card">
+          <strong>03</strong>
+          <h3>策略應用</h3>
+          <p>把分析轉成具體進場、止損與出場規劃。</p>
+        </article>
+        <article class="milestone-card">
+          <strong>04</strong>
+          <h3>紀律養成</h3>
+          <p>透過紀錄、覆盤與規則，建立穩定執行能力。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <p class="section-label">聯絡方式</p>
+      <h2>先進來認識我們，再決定要不要走更深。</h2>
+      <p class="lead">如果你想先看看社群氛圍，可以從體驗群開始；如果你已經有明確學習或策略需求，也可以直接聯絡管理員。</p>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Telegram 體驗群</h3>
+          <p>適合先了解社群風格、更新節奏與基礎內容，看看這套方法是否真的適合你。</p>
+          <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群 →</a>
+        </article>
+        <article class="contact-card">
+          <h3>台區管理聯絡</h3>
+          <p>想了解內部交流群、量化指標、策略服務或合作細節，可以直接聯絡管理。</p>
+          <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區管理 →</a>
+        </article>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h3>市場不缺訊號，缺的是一套能讓你走下去的方法。</h3>
+        <p>如果你想找的不是喊單，而是一個真正重視風控、學習與紀律的交易社群，那就先從體驗群開始。</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
+        <a class="btn btn-gold" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-wrap">
+    <div class="footer-left">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+      </div>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4)">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
+      <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與止損管理。</p>
+    </div>
+    <div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;text-align:right">Follow Us</p>
+      <div class="footer-links" aria-label="外部連結">
+        <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
+        <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
+        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
+        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區管理</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    const toggle = document.querySelector('[data-theme-toggle]');
+    const root = document.documentElement;
+    let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const render = () => {
+      toggle.innerHTML = theme === 'dark'
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      toggle.setAttribute('aria-label', theme === 'dark' ? '切換為亮色模式' : '切換為暗色模式');
+    };
+    render();
+    toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); render(); });
+  })();
+</script>
+</body>
+</html>
