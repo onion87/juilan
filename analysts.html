@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>分析師介紹｜君瀾一品</title>
+  <meta name="description" content="君瀾一品分析師團隊介紹，深度認識帶領你走向穩定獲利的交易導師。"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --text-3xl:clamp(2.5rem,1rem + 4vw,5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
+      --radius-sm:.375rem;--radius-md:.75rem;--radius-lg:1rem;--radius-xl:1.5rem;--radius-full:9999px;
+      --color-bg:#f5f3ee;--color-surface:#fbfaf7;--color-surface-2:#f0ede7;--color-surface-offset:#e9e4db;
+      --color-border:rgba(40,37,29,.12);--color-text:#211d16;--color-text-muted:#68635c;--color-text-faint:#9d988f;
+      --color-primary:#0e7c86;--color-primary-hover:#095b63;--color-primary-highlight:rgba(14,124,134,.12);
+      --color-gold:#c8921f;--color-gold-highlight:rgba(200,146,31,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 32px rgba(0,0,0,.08);
+      --content:1180px;--font-body:'Satoshi','Inter',sans-serif;--font-display:'Cabinet Grotesk','Inter',sans-serif;
+    }
+    [data-theme="dark"]{
+      --color-bg:#0f1113;--color-surface:#15181c;--color-surface-2:#1b2025;--color-surface-offset:#222831;
+      --color-border:rgba(235,239,244,.12);--color-text:#edf1f5;--color-text-muted:#a8b0b8;--color-text-faint:#6f7983;
+      --color-primary:#39b8c4;--color-primary-hover:#78d6df;--color-primary-highlight:rgba(57,184,196,.12);
+      --color-gold:#efba58;--color-gold-highlight:rgba(239,186,88,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 20px 48px rgba(0,0,0,.32);
+    }
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;
+      background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:0}
+    .skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+
+    /* NAV */
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
+      background:color-mix(in srgb,var(--color-bg) 74%,transparent);border-bottom:1px solid var(--color-border)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3)}
+    .logo{width:42px;height:42px;flex-shrink:0;padding:8px;border-radius:14px;
+      background:linear-gradient(135deg,var(--color-primary-highlight),transparent),var(--color-surface-2);
+      border:1px solid var(--color-border)}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);letter-spacing:.04em}
+    .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover{color:var(--color-text)}
+    .nav-links a.active{color:var(--color-primary);font-weight:700}
+    .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;
+      border:1px solid var(--color-border);background:var(--color-surface);transition:background .18s}
+    .theme-toggle:hover{background:var(--color-surface-2)}
+
+    /* PAGE HERO */
+    .page-hero{
+      padding:clamp(3rem,6vw,5rem) 0 0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(57,184,196,.07),transparent 50%),
+                 radial-gradient(ellipse at 10% 90%,rgba(239,186,88,.05),transparent 45%);
+    }
+    .page-hero-inner{text-align:center;padding-bottom:clamp(2.5rem,5vw,4rem)}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.45rem .9rem;
+      border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);
+      font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;margin-bottom:var(--space-5)}
+    .page-hero h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.1;
+      margin-bottom:var(--space-4)}
+    .page-hero p{color:var(--color-text-muted);max-width:52ch;margin-inline:auto}
+
+    /* ANALYST TABS */
+    .tabs-wrap{display:flex;justify-content:center;gap:var(--space-3);flex-wrap:wrap;
+      padding-bottom:clamp(2rem,4vw,3.5rem)}
+    .tab-btn{
+      display:flex;align-items:center;gap:var(--space-3);
+      padding:var(--space-3) var(--space-5);border-radius:var(--radius-full);
+      border:1px solid var(--color-border);background:var(--color-surface);
+      font-size:var(--text-sm);font-family:var(--font-display);font-weight:600;
+      cursor:pointer;transition:all .22s cubic-bezier(.16,1,.3,1);
+      color:var(--color-text-muted);
+    }
+    .tab-btn .tab-avatar{
+      width:32px;height:32px;border-radius:var(--radius-full);overflow:hidden;
+      background:var(--color-surface-offset);border:1.5px solid var(--color-border);
+      display:grid;place-items:center;flex-shrink:0;
+      font-size:1rem;
+    }
+    .tab-btn.active{
+      border-color:var(--color-primary);
+      background:var(--color-primary-highlight);
+      color:var(--color-text);
+      box-shadow:0 0 0 3px rgba(57,184,196,.1);
+    }
+    .tab-btn:not(.active):hover{
+      border-color:var(--color-border);background:var(--color-surface-2);
+      color:var(--color-text);
+    }
+
+    /* ANALYST PANELS */
+    .panels-wrap{position:relative;min-height:600px}
+    .analyst-panel{
+      position:absolute;inset:0;
+      opacity:0;pointer-events:none;
+      transform:translateX(40px);
+      transition:opacity .38s cubic-bezier(.16,1,.3,1), transform .38s cubic-bezier(.16,1,.3,1);
+    }
+    .analyst-panel.active{
+      opacity:1;pointer-events:auto;
+      transform:translateX(0);
+      position:relative;
+    }
+    .analyst-panel.exit-left{
+      opacity:0;pointer-events:none;
+      transform:translateX(-40px);
+      transition:opacity .28s ease, transform .28s ease;
+    }
+
+    /* ANALYST CARD LAYOUT */
+    .analyst-layout{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:var(--space-8);
+      align-items:start;
+      padding-bottom:clamp(3rem,6vw,5rem);
+    }
+    /* LEFT: identity card */
+    .identity-card{
+      background:var(--color-surface);
+      border:1px solid var(--color-border);
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-md);
+      position:sticky;top:calc(5rem + var(--space-4));
+    }
+    .avatar-wrap{
+      position:relative;
+      aspect-ratio:1/1;
+      background:linear-gradient(135deg,var(--color-surface-offset),var(--color-surface-2));
+      overflow:hidden;
+    }
+    .avatar-wrap img{
+      width:100%;height:100%;object-fit:cover;
+    }
+    .avatar-placeholder{
+      position:absolute;inset:0;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      gap:var(--space-2);
+    }
+    .avatar-placeholder svg{opacity:.3;width:64px;height:64px}
+    .avatar-placeholder span{
+      font-size:var(--text-xs);color:var(--color-text-faint);
+      letter-spacing:.08em;text-transform:uppercase;
+    }
+    .avatar-badge{
+      position:absolute;bottom:var(--space-3);right:var(--space-3);
+      background:var(--color-gold);color:#1a0e00;
+      font-size:var(--text-xs);font-weight:700;font-family:var(--font-display);
+      padding:.3rem .75rem;border-radius:var(--radius-full);
+      letter-spacing:.05em;
+    }
+    .identity-info{
+      padding:var(--space-5) var(--space-6);
+    }
+    .analyst-name{
+      font-family:var(--font-display);
+      font-size:var(--text-xl);
+      font-weight:800;
+      margin-bottom:var(--space-1);
+      line-height:1.1;
+    }
+    .analyst-title{
+      font-size:var(--text-sm);
+      color:var(--color-primary);
+      font-weight:600;
+      margin-bottom:var(--space-4);
+    }
+    .analyst-desc{
+      font-size:var(--text-sm);
+      color:var(--color-text-muted);
+      line-height:1.7;
+      margin-bottom:var(--space-5);
+    }
+    .tag-row{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+    .tag{
+      font-size:var(--text-xs);
+      padding:.3rem .75rem;
+      border-radius:var(--radius-full);
+      background:var(--color-surface-offset);
+      color:var(--color-text-muted);
+      border:1px solid var(--color-border);
+    }
+    .tag.gold{
+      background:var(--color-gold-highlight);
+      color:var(--color-gold);
+      border-color:rgba(200,146,31,.2);
+    }
+
+    /* RIGHT: details */
+    .analyst-details{display:flex;flex-direction:column;gap:var(--space-5)}
+
+    /* Achievement timeline */
+    .detail-card{
+      background:var(--color-surface);
+      border:1px solid var(--color-border);
+      border-radius:var(--radius-xl);
+      padding:var(--space-6);
+      box-shadow:var(--shadow-sm);
+    }
+    .detail-card-title{
+      font-family:var(--font-display);
+      font-size:var(--text-base);
+      font-weight:700;
+      margin-bottom:var(--space-5);
+      display:flex;align-items:center;gap:var(--space-2);
+      color:var(--color-text);
+    }
+    .detail-card-title .icon{
+      width:32px;height:32px;
+      background:var(--color-primary-highlight);
+      border-radius:var(--radius-md);
+      display:grid;place-items:center;
+      font-size:1rem;
+      flex-shrink:0;
+    }
+    .timeline{display:flex;flex-direction:column;gap:0}
+    .tl-item{
+      display:grid;
+      grid-template-columns:20px 1fr;
+      gap:var(--space-4);
+      padding-bottom:var(--space-5);
+      position:relative;
+    }
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{
+      width:10px;height:10px;
+      border-radius:50%;
+      background:var(--color-gold);
+      border:2px solid var(--color-bg);
+      box-shadow:0 0 0 1px var(--color-gold);
+      margin-top:6px;
+      position:relative;z-index:1;
+    }
+    .tl-item:not(:last-child) .tl-dot::after{
+      content:'';
+      position:absolute;
+      top:14px;left:50%;
+      transform:translateX(-50%);
+      width:1px;
+      height:calc(100% + var(--space-5) - 14px + 10px);
+      background:linear-gradient(to bottom,var(--color-gold),var(--color-border));
+      opacity:.4;
+    }
+    .tl-content h4{
+      font-family:var(--font-display);
+      font-size:var(--text-sm);
+      font-weight:700;
+      margin-bottom:var(--space-1);
+      line-height:1.3;
+    }
+    .tl-content p{
+      font-size:var(--text-xs);
+      color:var(--color-text-muted);
+      line-height:1.6;
+    }
+    .tl-badge{
+      display:inline-block;
+      margin-top:var(--space-1);
+      font-size:.7rem;
+      padding:.2rem .6rem;
+      border-radius:var(--radius-full);
+      background:var(--color-gold-highlight);
+      color:var(--color-gold);
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+
+    /* Stat chips */
+    .stat-chips{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+    .stat-chip{
+      background:var(--color-surface-2);
+      border:1px solid var(--color-border);
+      border-radius:var(--radius-lg);
+      padding:var(--space-4) var(--space-5);
+    }
+    .stat-chip .label{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--space-1)}
+    .stat-chip .val{font-family:var(--font-display);font-size:var(--text-lg);font-weight:800;color:var(--color-primary)}
+    .stat-chip .sub{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px}
+
+    /* Quote */
+    .quote-card{
+      border-left:3px solid var(--color-gold);
+      padding:var(--space-5) var(--space-6);
+      background:var(--color-gold-highlight);
+      border-radius:0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    .quote-card p{font-size:var(--text-base);font-style:italic;color:var(--color-text);line-height:1.7}
+    .quote-card cite{display:block;margin-top:var(--space-3);font-size:var(--text-xs);color:var(--color-text-faint);font-style:normal;letter-spacing:.06em;text-transform:uppercase}
+
+    /* FOOTER */
+    .footer{padding:var(--space-12) 0 var(--space-8);border-top:1px solid var(--color-border)}
+    .footer-wrap{display:flex;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .footer-left{flex:1 1 320px}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-2);align-items:flex-end}
+    .footer-links a{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);
+      background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
+    .footer-links a:hover{background:var(--color-surface-2)}
+    .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
+
+    @media(max-width:900px){
+      .analyst-layout{grid-template-columns:1fr}
+      .identity-card{position:static;max-width:400px;margin-inline:auto}
+      .avatar-wrap{aspect-ratio:4/3}
+      .stat-chips{grid-template-columns:1fr 1fr 1fr 1fr}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .stat-chips{grid-template-columns:1fr 1fr}
+      .footer-wrap{flex-direction:column}
+      .footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./index.html" aria-label="君瀾一品首頁">
+      <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+      </svg>
+      <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+    </a>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="./index.html">首頁</a>
+      <a href="./learn.html">學習專區</a>
+      <a href="./community.html">社群環境</a>
+      <a href="./strategy.html">策略服務</a>
+      <a href="./news.html">最新動態</a>
+      <a href="./about.html">關於我們</a>
+      <a href="./analysts.html" class="active">分析師</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <span class="eyebrow">認識帶領你的人</span>
+      <h1>分析師團隊</h1>
+      <p>每一位分析師都有真實的交易記錄與實戰背景，<br>不是在說教，是真的走過來的人。</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="container">
+      <div class="tabs-wrap" role="tablist" aria-label="選擇分析師">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-dragon" id="tab-dragon" data-target="dragon">
+          <span class="tab-avatar" aria-hidden="true">🐉</span>
+          龍總
+        </button>
+        <!-- 未來新增分析師在這裡加 tab-btn -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PANELS -->
+  <div class="container">
+    <div class="panels-wrap" id="panels-wrap">
+
+      <!-- 龍總 PANEL -->
+      <div class="analyst-panel active" id="panel-dragon" role="tabpanel" aria-labelledby="tab-dragon">
+        <div class="analyst-layout">
+
+          <!-- LEFT: identity -->
+          <div class="identity-card">
+            <div class="avatar-wrap">
+              <!-- 頭像預留位置：把圖片上傳後換掉 src 即可 -->
+              <!-- <img src="./assets/avatar-dragon.jpg" alt="龍總頭像" width="320" height="320" loading="lazy"> -->
+              <div class="avatar-placeholder" aria-label="龍總頭像預留位置">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="32" cy="24" r="12"/>
+                  <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24"/>
+                </svg>
+                <span>頭像上傳中</span>
+              </div>
+              <span class="avatar-badge">創辦人</span>
+            </div>
+            <div class="identity-info">
+              <h2 class="analyst-name">龍總</h2>
+              <p class="analyst-title">首席分析師 · 創辦人</p>
+              <p class="analyst-desc">深耕合約市場多年，以裸 K 實戰與量化思維為核心，橫跨深圳、香港、新加坡、普吉島等地受邀分享交易觀點，多次在業界賽事與品牌合作中獲得正式認可。</p>
+              <div class="tag-row">
+                <span class="tag gold">裸 K 實戰</span>
+                <span class="tag gold">量化策略</span>
+                <span class="tag">風險管理</span>
+                <span class="tag">Gate.io KOL</span>
+                <span class="tag">OKX 合作</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: details -->
+          <div class="analyst-details">
+
+            <!-- Quote -->
+            <div class="quote-card">
+              <p>「交易沒有捷徑，但有方法。把每一筆單做成有邏輯的決策，時間自然會給你答案。」</p>
+              <cite>— 龍總</cite>
+            </div>
+
+            <!-- Stats -->
+            <div class="detail-card">
+              <h3 class="detail-card-title">
+                <span class="icon">📊</span>核心數據
+              </h3>
+              <div class="stat-chips">
+                <div class="stat-chip">
+                  <div class="label">主戰場</div>
+                  <div class="val">合約</div>
+                  <div class="sub">裸 K 現貨 · 衍生品</div>
+                </div>
+                <div class="stat-chip">
+                  <div class="label">核心方法</div>
+                  <div class="val">裸 K</div>
+                  <div class="sub">實戰 + 量化思維</div>
+                </div>
+                <div class="stat-chip">
+                  <div class="label">跨境活動</div>
+                  <div class="val">4+</div>
+                  <div class="sub">城市受邀出席</div>
+                </div>
+                <div class="stat-chip">
+                  <div class="label">業界認可</div>
+                  <div class="val">5+</div>
+                  <div class="sub">獎項 · 特邀資格</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="detail-card">
+              <h3 class="detail-card-title">
+                <span class="icon">🏆</span>代表經歷 &amp; 榮耀時刻
+              </h3>
+              <div class="timeline">
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>裸 K 實戰交易大賽 · 深圳大灣區站 第二名</h4>
+                    <p>在正式賽場以純粹裸 K 分析策略競技，從眾多選手中脫穎而出拿下第二名，驗證實戰能力。</p>
+                    <span class="tl-badge">🥈 賽事亞軍</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>25 年大門 · 香港之旅特邀嘉賓</h4>
+                    <p>受 Gate.io 邀請赴香港出席品牌活動，作為官方認可的合作夥伴參與區域交流。</p>
+                    <span class="tl-badge">✈️ Gate.io 特邀</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>Token2049 新加坡 · 特邀嘉賓</h4>
+                    <p>受邀出席全球最具影響力的加密貨幣峰會之一 Token2049，代表社群與業界頂尖人士交流。</p>
+                    <span class="tl-badge">🌏 Token2049 嘉賓</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>榮獲大門 KOL 獎杯</h4>
+                    <p>由 Gate.io 官方頒發 KOL 獎項，肯定在加密貨幣社群影響力與內容創作上的持續貢獻。</p>
+                    <span class="tl-badge">🏆 Gate.io KOL Award</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>OKX 年夜飯 · 普吉島站特邀嘉賓</h4>
+                    <p>受 OKX 邀請赴普吉島出席品牌年度活動，作為亞洲重要合作夥伴代表參與高端圈層聚會。</p>
+                    <span class="tl-badge">🎊 OKX 特邀</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot"></div>
+                  <div class="tl-content">
+                    <h4>2025 大門 · 年底戰略突破獎</h4>
+                    <p>於 2025 年獲得 Gate.io 頒發「年底戰略突破獎」，代表在年度合作及策略推進上達到突出成果。</p>
+                    <span class="tl-badge">🎯 2025 戰略突破獎</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /analyst-details -->
+        </div><!-- /analyst-layout -->
+      </div><!-- /panel-dragon -->
+
+    </div><!-- /panels-wrap -->
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-wrap">
+    <div class="footer-left">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
+        </svg>
+        <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
+      </div>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4)">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
+      <p class="risk">風險聲明：合約交易具高度波動與槓桿風險，任何市場分析、策略分享與教學內容皆不構成保證獲利之投資承諾。請依自身風險承受能力審慎評估，並做好資金與止損管理。</p>
+    </div>
+    <div>
+      <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3);letter-spacing:.1em;text-transform:uppercase;text-align:right">Follow Us</p>
+      <div class="footer-links" aria-label="外部連結">
+        <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
+        <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
+        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    // Theme toggle
+    const toggle = document.querySelector('[data-theme-toggle]');
+    const root = document.documentElement;
+    let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const renderToggle = () => {
+      toggle.innerHTML = theme === 'dark'
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      toggle.setAttribute('aria-label', theme === 'dark' ? '切換為亮色模式' : '切換為暗色模式');
+    };
+    renderToggle();
+    toggle.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      renderToggle();
+    });
+
+    // Analyst tab switching with slide animation
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.analyst-panel');
+    let currentIdx = 0;
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        if (tab.classList.contains('active')) return;
+        const targetId = 'panel-' + tab.dataset.target;
+        const nextPanel = document.getElementById(targetId);
+        const currentPanel = document.querySelector('.analyst-panel.active');
+        const nextIdx = i;
+        const goRight = nextIdx > currentIdx;
+
+        // Exit current
+        currentPanel.classList.remove('active');
+        currentPanel.classList.add('exit-left');
+        currentPanel.style.transform = goRight ? 'translateX(-40px)' : 'translateX(40px)';
+
+        // Enter next
+        nextPanel.style.opacity = '0';
+        nextPanel.style.transform = goRight ? 'translateX(40px)' : 'translateX(-40px)';
+        nextPanel.style.position = 'relative';
+        nextPanel.style.pointerEvents = 'auto';
+
+        setTimeout(() => {
+          currentPanel.classList.remove('exit-left');
+          currentPanel.style.transform = '';
+          currentPanel.style.position = 'absolute';
+          currentPanel.style.pointerEvents = 'none';
+
+          nextPanel.style.transition = 'opacity .38s cubic-bezier(.16,1,.3,1), transform .38s cubic-bezier(.16,1,.3,1)';
+          nextPanel.style.opacity = '1';
+          nextPanel.style.transform = 'translateX(0)';
+          nextPanel.classList.add('active');
+        }, 30);
+
+        // Update tabs
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        currentIdx = nextIdx;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
