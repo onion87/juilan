@@ -120,8 +120,9 @@
     @media(max-width:720px){.nav-links{display:none}.cta-band{flex-direction:column;align-items:flex-start}.footer-wrap{flex-direction:column}.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
     /* LOOPING BACKGROUND VIDEO */
     .page-hero,.hero{position:relative;overflow:hidden;isolation:isolate}
-    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:-2;filter:saturate(1.1) contrast(1.08)}
-    .page-hero:before,.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%)}/* SOFT MOTION */
+    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:0;filter:saturate(1.1) contrast(1.08);pointer-events:none}
+    .page-hero:before,.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%);pointer-events:none}
+    .page-hero>.container,.hero>.container,.page-hero>*:not(.hero-bg-video),.hero>*:not(.hero-bg-video){position:relative;z-index:2}/* SOFT MOTION */
     [data-animate]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
     [data-animate].is-visible{opacity:1;transform:translateY(0)}
     .btn,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.stat-card,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.analyst-panel,.detail-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .18s,color .18s}
@@ -157,13 +158,15 @@
   </div>
 </header>
 <main id="main">
-  <div class="container">
-    <div class="page-hero">
-  <video class="hero-bg-video" src="./assets/hero-bg.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+  <div class="page-hero">
+    <video class="hero-bg-video" src="./assets/hero-bg.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <div class="container">
       <span class="eyebrow">About</span>
       <h1>我們不是在賣夢，<br>而是在建立一套能走長遠的交易系統。</h1>
       <p>君瀾一品成立的核心，不是讓人追逐短期刺激，而是把交易重新拉回紀律、風控、學習與長期穩定這四件真正重要的事。社群裡的每一項工具、每一次帶單、每一堂教學，最後都要回到這個基礎。</p>
     </div>
+  </div>
+  <div class="container">
     <section class="intro-grid" aria-label="品牌介紹">
       <article class="intro-card">
         <h2>品牌理念</h2>
@@ -209,9 +212,10 @@
     <section class="section" id="contact">
       <p class="section-label">聯絡方式</p>
       <h2>先進來認識我們，再決定要不要走更深。</h2>
-      <p class="lead">如果你想先看看社群氛圍，可以從體驗群開始；如果你已經有明確學習或策略需求，也可以直接聯絡台區助理。</p>
+      <p class="lead">如果你想先看看社群氛圍，可以從 TG 或 LINE 體驗群開始，先感受更新節奏與社群內容。</p>
       <div class="contact-grid">
         <article class="contact-card"><h3>Telegram 體驗群</h3><p>適合先了解社群風格、更新節奏與基礎內容，看看這套方法是否真的適合你。</p><a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群 →</a></article>
+        <article class="contact-card"><h3>LINE 體驗群</h3><p>想用 LINE 接收更新，也可以從 LINE 體驗群開始認識我們的社群節奏。</p><a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群 →</a></article>
       </div>
     </section>
     <div class="cta-band">
@@ -281,6 +285,9 @@
   })();
 </script></body>
 </html>
+
+
+
 
 
 
