@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
@@ -118,7 +118,16 @@
     .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
     @media(max-width:980px){.intro-grid,.values-grid,.culture-grid,.contact-grid,.milestone-grid{grid-template-columns:1fr}}
     @media(max-width:720px){.nav-links{display:none}.cta-band{flex-direction:column;align-items:flex-start}.footer-wrap{flex-direction:column}.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    /* LOOPING BACKGROUND VIDEO */
+    .page-hero,.hero{position:relative;overflow:hidden;isolation:isolate}
+    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:-2;filter:saturate(1.1) contrast(1.08)}
+    .page-hero:before,.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%)}/* SOFT MOTION */
+    [data-animate]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    [data-animate].is-visible{opacity:1;transform:translateY(0)}
+    .btn,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.stat-card,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.analyst-panel,.detail-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .18s,color .18s}
+    .btn:hover,.service-card:hover,.path-card:hover,.value-card:hover,.showcase-main:hover,.showcase-item:hover,.stat-card:hover,.contact-card:hover,.culture-card:hover,.news-card:hover,.article-card:hover,.strategy-card:hover,.faq-item:hover,.detail-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--color-primary) 35%,var(--color-border))}
+    .logo{animation:logoFloat 5s ease-in-out infinite}
+    @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
 <body>
@@ -140,7 +149,7 @@
       <a href="./strategy.html">策略服務</a>
       <a href="./news.html">最新動態</a>
       <a href="./about.html" class="active">關於我們</a>
-      <a href="./analysts.html" class="nav-analyst">🏆 分析師</a>
+      <a href="./analysts.html" >君瀾一品分析師資料</a>
     </nav>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -150,6 +159,7 @@
 <main id="main">
   <div class="container">
     <div class="page-hero">
+  <video class="hero-bg-video" src="./assets/hero-bg.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
       <span class="eyebrow">About</span>
       <h1>我們不是在賣夢，<br>而是在建立一套能走長遠的交易系統。</h1>
       <p>君瀾一品成立的核心，不是讓人追逐短期刺激，而是把交易重新拉回紀律、風控、學習與長期穩定這四件真正重要的事。社群裡的每一項工具、每一次帶單、每一堂教學，最後都要回到這個基礎。</p>
@@ -202,7 +212,6 @@
       <p class="lead">如果你想先看看社群氛圍，可以從體驗群開始；如果你已經有明確學習或策略需求，也可以直接聯絡台區助理。</p>
       <div class="contact-grid">
         <article class="contact-card"><h3>Telegram 體驗群</h3><p>適合先了解社群風格、更新節奏與基礎內容，看看這套方法是否真的適合你。</p><a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群 →</a></article>
-        <article class="contact-card"><h3>台區助理聯絡</h3><p>想了解內部交流群、量化指標、策略服務或合作細節，可以直接聯絡台區助理。</p><a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理 →</a></article>
       </div>
     </section>
     <div class="cta-band">
@@ -229,11 +238,6 @@
       <div class="footer-links" aria-label="外部連結">
         <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
         <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
-        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
-        <a href="https://www.tiktok.com/@dafu5558" target="_blank" rel="noopener noreferrer">TikTok @dafu5558</a>
-        <a href="https://www.tiktok.com/@dufij55678" target="_blank" rel="noopener noreferrer">TikTok @dufij55678</a>
-        <a href="https://www.tiktok.com/@fuyao668" target="_blank" rel="noopener noreferrer">TikTok @fuyao668</a>
-        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
       </div>
     </div>
   </div>
@@ -254,5 +258,31 @@
     toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); render(); });
   })();
 </script>
-</body>
+<script>
+  (() => {
+    const candidates = document.querySelectorAll('section,.stat-card,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.detail-card');
+    candidates.forEach((el, index) => {
+      if (!el.hasAttribute('data-animate')) el.setAttribute('data-animate', 'fade-up');
+      el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
+    });
+    if (!('IntersectionObserver' in window)) {
+      candidates.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    candidates.forEach(el => observer.observe(el));
+  })();
+</script></body>
 </html>
+
+
+
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
@@ -101,7 +101,16 @@
     .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
     @media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr}.logic-grid{grid-template-columns:1fr}}
     @media(max-width:640px){.services-grid{grid-template-columns:1fr}.nav-links{display:none}.cta-band{flex-direction:column;align-items:flex-start}.footer-wrap{flex-direction:column}.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    /* LOOPING BACKGROUND VIDEO */
+    .page-hero,.hero{position:relative;overflow:hidden;isolation:isolate}
+    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:-2;filter:saturate(1.1) contrast(1.08)}
+    .page-hero:before,.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%)}/* SOFT MOTION */
+    [data-animate]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    [data-animate].is-visible{opacity:1;transform:translateY(0)}
+    .btn,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.stat-card,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.analyst-panel,.detail-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .18s,color .18s}
+    .btn:hover,.service-card:hover,.path-card:hover,.value-card:hover,.showcase-main:hover,.showcase-item:hover,.stat-card:hover,.contact-card:hover,.culture-card:hover,.news-card:hover,.article-card:hover,.strategy-card:hover,.faq-item:hover,.detail-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--color-primary) 35%,var(--color-border))}
+    .logo{animation:logoFloat 5s ease-in-out infinite}
+    @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
 <body>
@@ -123,6 +132,7 @@
       <a href="./strategy.html" class="active">策略服務</a>
       <a href="./news.html">最新動態</a>
       <a href="./about.html">關於我們</a>
+      <a href="./analysts.html" >君瀾一品分析師資料</a>
     </nav>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -131,6 +141,7 @@
 </header>
 <main id="main">
   <div class="page-hero">
+  <video class="hero-bg-video" src="./assets/hero-bg.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
     <div class="container">
       <p class="section-label">策略服務</p>
       <h1>不只是訊號，而是一套可以執行的交易系統。</h1>
@@ -277,7 +288,6 @@
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
         <a class="btn btn-gold" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群</a>
-        <a class="btn btn-outline" href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
       </div>
     </div>
   </div>
@@ -301,11 +311,6 @@
       <div class="footer-links" aria-label="外部連結">
         <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
         <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
-        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
-        <a href="https://www.tiktok.com/@dafu5558" target="_blank" rel="noopener noreferrer">TikTok @dafu5558</a>
-        <a href="https://www.tiktok.com/@dufij55678" target="_blank" rel="noopener noreferrer">TikTok @dufij55678</a>
-        <a href="https://www.tiktok.com/@fuyao668" target="_blank" rel="noopener noreferrer">TikTok @fuyao668</a>
-        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
       </div>
     </div>
   </div>
@@ -320,5 +325,31 @@
     t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);render();});
   })();
 </script>
-</body>
+<script>
+  (() => {
+    const candidates = document.querySelectorAll('section,.stat-card,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.detail-card');
+    candidates.forEach((el, index) => {
+      if (!el.hasAttribute('data-animate')) el.setAttribute('data-animate', 'fade-up');
+      el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
+    });
+    if (!('IntersectionObserver' in window)) {
+      candidates.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    candidates.forEach(el => observer.observe(el));
+  })();
+</script></body>
 </html>
+
+
+
+
+

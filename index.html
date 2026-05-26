@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
@@ -58,6 +58,10 @@
     .theme-toggle:hover{background:var(--color-surface-2)}
 
     /* HERO */
+    .hero{position:relative;overflow:hidden;isolation:isolate}
+    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:-2;filter:saturate(1.1) contrast(1.08)}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%)}
+    /* HERO */
     .hero{padding:clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
       background:radial-gradient(ellipse at 70% 30%,rgba(57,184,196,.09),transparent 55%),
                  radial-gradient(ellipse at 20% 80%,rgba(239,186,88,.06),transparent 45%)}
@@ -84,6 +88,8 @@
       border-radius:var(--radius-xl);padding:var(--space-5) var(--space-6);box-shadow:var(--shadow-md)}
     .stat-card .label{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--space-2)}
     .stat-card .value{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary)}
+    .tv-link,.inline-link{color:var(--color-primary);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--color-primary) 45%,transparent)}
+    .tv-link:hover,.inline-link:hover{color:var(--color-primary-hover);border-bottom-color:currentColor}
     .stat-card .desc{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-1)}
     .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
 
@@ -169,7 +175,16 @@
       .footer-wrap{flex-direction:column}
       .footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
     }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    /* LOOPING BACKGROUND VIDEO */
+    .page-hero,.hero{position:relative;overflow:hidden;isolation:isolate}
+    .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;z-index:-2;filter:saturate(1.1) contrast(1.08)}
+    .page-hero:before,.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--color-bg) 0%,color-mix(in srgb,var(--color-bg) 82%,transparent) 48%,color-mix(in srgb,var(--color-bg) 62%,transparent) 100%)}/* SOFT MOTION */
+    [data-animate]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    [data-animate].is-visible{opacity:1;transform:translateY(0)}
+    .btn,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.stat-card,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.analyst-panel,.detail-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .18s,color .18s}
+    .btn:hover,.service-card:hover,.path-card:hover,.value-card:hover,.showcase-main:hover,.showcase-item:hover,.stat-card:hover,.contact-card:hover,.culture-card:hover,.news-card:hover,.article-card:hover,.strategy-card:hover,.faq-item:hover,.detail-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--color-primary) 35%,var(--color-border))}
+    .logo{animation:logoFloat 5s ease-in-out infinite}
+    @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
 <body>
@@ -192,6 +207,7 @@
       <a href="./strategy.html">策略服務</a>
       <a href="./news.html">最新動態</a>
       <a href="./about.html">關於我們</a>
+      <a href="./analysts.html" >君瀾一品分析師資料</a>
     </nav>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -203,6 +219,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <video class="hero-bg-video" src="./assets/hero-bg.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
     <div class="container hero-inner">
       <div>
         <span class="eyebrow">合約策略交易社群</span>
@@ -211,7 +228,6 @@
         <div class="hero-btns">
           <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
           <a class="btn btn-gold" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群</a>
-          <a class="btn btn-outline" href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -229,7 +245,7 @@
             </div>
             <div class="stat-card">
               <div class="label">量化工具</div>
-              <div class="value">TradingView</div>
+              <a class="value tv-link" href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer" aria-label="前往 TradingView 官方網站">TradingView</a>
               <div class="desc">自動反手策略</div>
             </div>
           </div>
@@ -253,7 +269,7 @@
         </div>
         <div class="service-card">
           <div class="service-icon">📊</div>
-          <h3>TradingView 量化指標</h3>
+          <h3><a class="inline-link" href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView 量化指標</a></h3>
           <p>自行開發的量化指標，把多空判讀、進出場訊號整合在圖表上，更快更準。</p>
         </div>
         <div class="service-card">
@@ -418,11 +434,6 @@
       <div class="footer-links" aria-label="外部連結">
         <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">TG 體驗群</a>
         <a href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">LINE 體驗群</a>
-        <a href="https://www.tiktok.com/@zorvex1114" target="_blank" rel="noopener noreferrer">TikTok @zorvex1114</a>
-        <a href="https://www.tiktok.com/@dafu5558" target="_blank" rel="noopener noreferrer">TikTok @dafu5558</a>
-        <a href="https://www.tiktok.com/@dufij55678" target="_blank" rel="noopener noreferrer">TikTok @dufij55678</a>
-        <a href="https://www.tiktok.com/@fuyao668" target="_blank" rel="noopener noreferrer">TikTok @fuyao668</a>
-        <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理</a>
       </div>
     </div>
   </div>
@@ -444,5 +455,32 @@
     toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); render(); });
   })();
 </script>
-</body>
+<script>
+  (() => {
+    const candidates = document.querySelectorAll('section,.stat-card,.service-card,.path-card,.value-card,.showcase-main,.showcase-item,.cta-band,.contact-card,.culture-card,.news-card,.article-card,.strategy-card,.faq-item,.detail-card');
+    candidates.forEach((el, index) => {
+      if (!el.hasAttribute('data-animate')) el.setAttribute('data-animate', 'fade-up');
+      el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
+    });
+    if (!('IntersectionObserver' in window)) {
+      candidates.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    candidates.forEach(el => observer.observe(el));
+  })();
+</script></body>
 </html>
+
+
+
+
+
+
