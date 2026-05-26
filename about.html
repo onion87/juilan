@@ -39,7 +39,6 @@
     .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
     .skip-link{position:absolute;left:-9999px;top:0}
     .skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
-
     .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
       background:color-mix(in srgb,var(--color-bg) 74%,transparent);border-bottom:1px solid var(--color-border)}
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
@@ -52,17 +51,22 @@
     .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
     .nav-links a:hover{color:var(--color-text)}
     .nav-links a.active{color:var(--color-primary);font-weight:700}
+    .nav-links a.nav-analyst{
+      color:var(--color-gold);font-weight:700;
+      background:var(--color-gold-highlight);
+      padding:.25rem .75rem;border-radius:var(--radius-full);
+      border:1px solid rgba(200,146,31,.25);
+    }
+    .nav-links a.nav-analyst:hover{filter:brightness(1.15)}
     .theme-toggle{width:46px;height:46px;border-radius:var(--radius-full);display:grid;place-items:center;
       border:1px solid var(--color-border);background:var(--color-surface);transition:background .18s}
     .theme-toggle:hover{background:var(--color-surface-2)}
-
     .page-hero{padding:clamp(3rem,6vw,5rem) 0 var(--space-12)}
     .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.5rem .9rem;
       border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);
       font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase}
     .page-hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05}
     .page-hero p{margin-top:var(--space-4);max-width:68ch;color:var(--color-text-muted)}
-
     .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6);margin-bottom:var(--space-16)}
     .intro-card,.value-card,.culture-card,.contact-card,.quote-card,.milestone-card{
       background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
@@ -72,13 +76,11 @@
     .quote-card{padding:var(--space-8);display:flex;flex-direction:column;justify-content:space-between}
     .quote-card blockquote{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.35}
     .quote-card span{margin-top:var(--space-6);font-size:var(--text-sm);color:var(--color-text-muted)}
-
     .section{padding:var(--space-16) 0}
     .section + .section{border-top:1px solid var(--color-border)}
     .section-label{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3)}
     .section h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
     .section .lead{color:var(--color-text-muted);max-width:72ch;margin-bottom:var(--space-8)}
-
     .values-grid,.culture-grid,.contact-grid,.milestone-grid{display:grid;gap:var(--space-5)}
     .values-grid{grid-template-columns:repeat(2,1fr)}
     .culture-grid{grid-template-columns:repeat(3,1fr)}
@@ -90,11 +92,8 @@
     .value-card ul,.culture-card ul{list-style:none;display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-4)}
     .value-card ul li,.culture-card ul li{font-size:var(--text-sm);color:var(--color-text-muted);padding-left:1.2rem;position:relative}
     .value-card ul li::before,.culture-card ul li::before{content:"›";position:absolute;left:0;color:var(--color-primary);font-weight:700}
-
     .milestone-card strong{display:block;font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary);line-height:1;margin-bottom:var(--space-3)}
-
     .contact-card a{display:inline-flex;align-items:center;gap:.4rem;margin-top:var(--space-4);font-size:var(--text-sm);font-weight:700;color:var(--color-primary)}
-
     .cta-band{padding:var(--space-10) var(--space-8);
       background:linear-gradient(135deg,var(--color-surface),var(--color-surface-2));
       border:1px solid var(--color-border);border-radius:var(--radius-xl);
@@ -109,7 +108,6 @@
     .btn-primary{background:var(--color-primary);color:#041518}
     .btn-primary:hover{background:var(--color-primary-hover);color:#fff}
     .btn-gold{background:var(--color-gold);color:#1a0e00}
-
     .footer{padding:var(--space-12) 0 var(--space-8);border-top:1px solid var(--color-border)}
     .footer-wrap{display:flex;gap:var(--space-10);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
     .footer-left{flex:1 1 320px}
@@ -118,22 +116,13 @@
       background:var(--color-surface);font-size:var(--text-sm);transition:background .18s;white-space:nowrap}
     .footer-links a:hover{background:var(--color-surface-2)}
     .risk{margin-top:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint);max-width:60ch}
-
-    @media(max-width:980px){
-      .intro-grid,.values-grid,.culture-grid,.contact-grid,.milestone-grid{grid-template-columns:1fr}
-    }
-    @media(max-width:720px){
-      .nav-links{display:none}
-      .cta-band{flex-direction:column;align-items:flex-start}
-      .footer-wrap{flex-direction:column}
-      .footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
-    }
+    @media(max-width:980px){.intro-grid,.values-grid,.culture-grid,.contact-grid,.milestone-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.nav-links{display:none}.cta-band{flex-direction:column;align-items:flex-start}.footer-wrap{flex-direction:column}.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到主要內容</a>
-
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="./index.html" aria-label="君瀾一品首頁">
@@ -151,13 +140,13 @@
       <a href="./strategy.html">策略服務</a>
       <a href="./news.html">最新動態</a>
       <a href="./about.html" class="active">關於我們</a>
+      <a href="./analysts.html" class="nav-analyst">🏆 分析師</a>
     </nav>
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="切換明暗模式">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
-
 <main id="main">
   <div class="container">
     <div class="page-hero">
@@ -165,7 +154,6 @@
       <h1>我們不是在賣夢，<br>而是在建立一套能走長遠的交易系統。</h1>
       <p>君瀾一品成立的核心，不是讓人追逐短期刺激，而是把交易重新拉回紀律、風控、學習與長期穩定這四件真正重要的事。社群裡的每一項工具、每一次帶單、每一堂教學，最後都要回到這個基礎。</p>
     </div>
-
     <section class="intro-grid" aria-label="品牌介紹">
       <article class="intro-card">
         <h2>品牌理念</h2>
@@ -178,116 +166,47 @@
         <span>—— 君瀾一品交易文化核心句</span>
       </aside>
     </section>
-
     <section class="section" id="direction">
       <p class="section-label">社群方向</p>
       <h2>先建立觀念，再提高勝率；先保住本金，再談放大利潤。</h2>
       <p class="lead">我們的社群設計不是單純資訊群，而是把新手、進階使用者、以及有策略需求的人，放進同一套有層次的學習與交流架構裡。</p>
       <div class="values-grid">
-        <article class="value-card">
-          <h3>給新手的方向</h3>
-          <p>先學會看懂市場、理解風險、建立正確心態，而不是急著找最快翻倍的方法。</p>
-          <ul>
-            <li>從 K 線、結構、風控開始建立基本盤</li>
-            <li>降低亂追單、亂加碼、情緒單的機率</li>
-            <li>讓你先活下來，再談做大</li>
-          </ul>
-        </article>
-        <article class="value-card">
-          <h3>給進階交易者的方向</h3>
-          <p>把主觀經驗整理成更穩定的流程，透過工具、紀錄與覆盤，提升執行一致性。</p>
-          <ul>
-            <li>善用量化指標提高判讀效率</li>
-            <li>建立可檢討、可複製的交易流程</li>
-            <li>把感覺交易轉成系統交易</li>
-          </ul>
-        </article>
+        <article class="value-card"><h3>給新手的方向</h3><p>先學會看懂市場、理解風險、建立正確心態，而不是急著找最快翻倍的方法。</p><ul><li>從 K 線、結構、風控開始建立基本盤</li><li>降低亂追單、亂加碼、情緒單的機率</li><li>讓你先活下來，再談做大</li></ul></article>
+        <article class="value-card"><h3>給進階交易者的方向</h3><p>把主觀經驗整理成更穩定的流程，透過工具、紀錄與覆盤，提升執行一致性。</p><ul><li>善用量化指標提高判讀效率</li><li>建立可檢討、可複製的交易流程</li><li>把感覺交易轉成系統交易</li></ul></article>
       </div>
     </section>
-
     <section class="section" id="culture">
       <p class="section-label">交易文化</p>
       <h2>我們重視的不只是會不會賺，而是你用什麼方式賺。</h2>
       <p class="lead">同樣賺錢，有的人是靠紀律和系統，有的人是靠運氣和硬扛。前者能留下來，後者通常只是暫時還沒出事。</p>
       <div class="culture-grid">
-        <article class="culture-card">
-          <h3>風控優先</h3>
-          <p>先定義最大虧損，再決定要不要進場。沒有止損的交易，不算交易，只是賭博。</p>
-          <ul>
-            <li>每筆單都先看風報比</li>
-            <li>不讓一次錯誤拖垮整體帳戶</li>
-          </ul>
-        </article>
-        <article class="culture-card">
-          <h3>紀律執行</h3>
-          <p>看得懂是一回事，做不做得到是另一回事。真正的差距通常出在執行，不是出在知識量。</p>
-          <ul>
-            <li>遵守進出場規則</li>
-            <li>減少臨盤情緒干擾</li>
-          </ul>
-        </article>
-        <article class="culture-card">
-          <h3>長期穩定</h3>
-          <p>我們不追求炫目的短期戰績，而是追求一套經得起時間檢驗的節奏與結果。</p>
-          <ul>
-            <li>重視資金曲線的平穩</li>
-            <li>重視可持續性的交易方式</li>
-          </ul>
-        </article>
+        <article class="culture-card"><h3>風控優先</h3><p>先定義最大虧損，再決定要不要進場。沒有止損的交易，不算交易，只是賭博。</p><ul><li>每筆單都先看風報比</li><li>不讓一次錯誤拖垮整體帳戶</li></ul></article>
+        <article class="culture-card"><h3>紀律執行</h3><p>看得懂是一回事，做不做得到是另一回事。真正的差距通常出在執行，不是出在知識量。</p><ul><li>遵守進出場規則</li><li>減少臨盤情緒干擾</li></ul></article>
+        <article class="culture-card"><h3>長期穩定</h3><p>我們不追求炫目的短期戰績，而是追求一套經得起時間檢驗的節奏與結果。</p><ul><li>重視資金曲線的平穩</li><li>重視可持續性的交易方式</li></ul></article>
       </div>
     </section>
-
     <section class="section" id="learning">
       <p class="section-label">學習核心</p>
       <h2>知識不是越多越好，而是你能不能真的拿來用。</h2>
       <p class="lead">我們的學習核心不是塞一堆術語，而是把最常用、最關鍵、最能實戰落地的內容，用可以理解與反覆練習的方式整理出來。</p>
       <div class="milestone-grid">
-        <article class="milestone-card">
-          <strong>01</strong>
-          <h3>基礎入門</h3>
-          <p>建立對合約、槓桿、倉位與風險的基本理解。</p>
-        </article>
-        <article class="milestone-card">
-          <strong>02</strong>
-          <h3>技術分析</h3>
-          <p>學會看 K 線、市場結構、供需與流動性。</p>
-        </article>
-        <article class="milestone-card">
-          <strong>03</strong>
-          <h3>策略應用</h3>
-          <p>把分析轉成具體進場、止損與出場規劃。</p>
-        </article>
-        <article class="milestone-card">
-          <strong>04</strong>
-          <h3>紀律養成</h3>
-          <p>透過紀錄、覆盤與規則，建立穩定執行能力。</p>
-        </article>
+        <article class="milestone-card"><strong>01</strong><h3>基礎入門</h3><p>建立對合約、槓桿、倉位與風險的基本理解。</p></article>
+        <article class="milestone-card"><strong>02</strong><h3>技術分析</h3><p>學會看 K 線、市場結構、供需與流動性。</p></article>
+        <article class="milestone-card"><strong>03</strong><h3>策略應用</h3><p>把分析轉成具體進場、止損與出場規劃。</p></article>
+        <article class="milestone-card"><strong>04</strong><h3>紀律養成</h3><p>透過紀錄、覆盤與規則，建立穩定執行能力。</p></article>
       </div>
     </section>
-
     <section class="section" id="contact">
       <p class="section-label">聯絡方式</p>
       <h2>先進來認識我們，再決定要不要走更深。</h2>
       <p class="lead">如果你想先看看社群氛圍，可以從體驗群開始；如果你已經有明確學習或策略需求，也可以直接聯絡台區助理。</p>
       <div class="contact-grid">
-        <article class="contact-card">
-          <h3>Telegram 體驗群</h3>
-          <p>適合先了解社群風格、更新節奏與基礎內容，看看這套方法是否真的適合你。</p>
-          <a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群 →</a>
-        </article>
-        <article class="contact-card">
-          <h3>台區助理聯絡</h3>
-          <p>想了解內部交流群、量化指標、策略服務或合作細節，可以直接聯絡台區助理。</p>
-          <a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理 →</a>
-        </article>
+        <article class="contact-card"><h3>Telegram 體驗群</h3><p>適合先了解社群風格、更新節奏與基礎內容，看看這套方法是否真的適合你。</p><a href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群 →</a></article>
+        <article class="contact-card"><h3>台區助理聯絡</h3><p>想了解內部交流群、量化指標、策略服務或合作細節，可以直接聯絡台區助理。</p><a href="https://t.me/dufij56777" target="_blank" rel="noopener noreferrer">聯絡台區助理 →</a></article>
       </div>
     </section>
-
     <div class="cta-band">
-      <div>
-        <h3>市場不缺訊號，缺的是一套能讓你走下去的方法。</h3>
-        <p>如果你想找的不是喊單，而是一個真正重視風控、學習與紀律的交易社群，那就先從體驗群開始。</p>
-      </div>
+      <div><h3>市場不缺訊號，缺的是一套能讓你走下去的方法。</h3><p>如果你想找的不是喊單，而是一個真正重視風控、學習與紀律的交易社群，那就先從體驗群開始。</p></div>
       <div class="cta-btns">
         <a class="btn btn-primary" href="https://t.me/+Ml8jkh0eIc02Mjdl" target="_blank" rel="noopener noreferrer">加入 TG 體驗群</a>
         <a class="btn btn-gold" href="https://line.me/ti/g2/KDC5qEwlLAf_ZljVrYAiR7Fd8M58xYmxdlRGfg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">加入 LINE 體驗群</a>
@@ -295,16 +214,11 @@
     </div>
   </div>
 </main>
-
 <footer class="footer">
   <div class="container footer-wrap">
     <div class="footer-left">
       <div class="brand">
-        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          <path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          <path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/>
-        </svg>
+        <svg class="logo" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 31.5C18 30.8 24.1 24.9 25.2 17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M15 36.5C27.5 36.5 36.5 28.8 38 16" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M12 13.5L20.5 9L28.5 13.5L24 16.2L12 13.5Z" fill="currentColor" opacity=".9"/></svg>
         <div class="brand-text"><strong>君瀾一品</strong><span>合約策略交易社群</span></div>
       </div>
       <p style="color:var(--color-text-muted);max-width:52ch;margin-top:var(--space-4)">把交易做成一套有記錄、有規則、有節奏的長期系統。</p>
@@ -324,7 +238,6 @@
     </div>
   </div>
 </footer>
-
 <script>
   (() => {
     const toggle = document.querySelector('[data-theme-toggle]');
